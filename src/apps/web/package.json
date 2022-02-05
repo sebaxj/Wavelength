@@ -1,38 +1,45 @@
 {
 	"name": "web",
-	"version": "0.1.0",
+	"private": true,
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "webpack serve --config webpack.config.js --env env=development",
+		"build": "webpack --config webpack.config.js --env env=production",
+		"lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
+		"lint-fix": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx}\""
+	},
+	"keywords": [],
+	"author": "Sebastian James",
+	"license": "ISC",
 	"dependencies": {
-		"@testing-library/jest-dom": "^5.16.1",
-		"@testing-library/react": "^12.1.2",
-		"@testing-library/user-event": "^13.5.0",
-		"@types/jest": "^27.4.0",
-		"@types/node": "^16.11.17",
-		"@types/react": "^17.0.38",
-		"@types/react-dom": "^17.0.11",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
-		"react-scripts": "5.0.0",
-		"typescript": "^4.5.4",
-		"web-vitals": "^2.1.2",
 		"ui": "*"
 	},
-	"scripts": {
-		"dev": "PORT=3001 react-scripts start",
-		"start": "react-scripts start",
-		"build": "react-scripts build",
-		"test": "react-scripts test",
-		"eject": "react-scripts eject"
-	},
-	"eslintConfig": {
-		"extends": ["react-app", "react-app/jest"]
-	},
-	"browserslist": {
-		"production": [">0.2%", "not dead", "not op_mini all"],
-		"development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
-	},
 	"devDependencies": {
-		"eslint-config-react-app": "^7.0.0",
+		"@babel/cli": "^7.17.0",
+		"@babel/core": "^7.17.0",
+		"@babel/plugin-transform-runtime": "^7.17.0",
+		"@babel/preset-env": "^7.16.11",
+		"@babel/preset-react": "^7.16.7",
+		"@babel/preset-typescript": "^7.16.7",
+		"@babel/runtime": "^7.17.0",
+		"@types/react": "^17.0.39",
+		"@types/react-dom": "^17.0.11",
+		"babel-loader": "^8.2.3",
+		"clean-webpack-plugin": "^4.0.0",
 		"config": "*",
-		"tsconfig": "*"
-	}
+		"css-loader": "^6.6.0",
+		"eslint": "^8.8.0",
+		"html-webpack-plugin": "^5.5.0",
+		"style-loader": "^3.3.1",
+		"tsconfig": "*",
+		"typescript": "^4.5.5",
+		"webpack": "^5.68.0",
+		"webpack-cli": "^4.9.2",
+		"webpack-dev-server": "^4.7.4"
+	},
+	"homepage": "http://web.stanford.edu/class/cs147/projects/BecomingIron-Man/Wavelength"
 }
