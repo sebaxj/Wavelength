@@ -4,5 +4,5 @@
 
 Connor Hogan  
 Steven Kohl  
-Corbin Schmiel  
+Corbin Schmeil  
 Sebastian James
