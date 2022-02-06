@@ -43,6 +43,6 @@ scp apps/web/dist/* [SUNet ID]@myth.stanford.edu:/afs/ir/class/cs147/WWW/project
 ## Contributors
 
 Connor Hogan  
-Steven Kohl  
 Corbin Schmeil  
-Sebastian James
+Sebastian James  
+Steven Kohl
