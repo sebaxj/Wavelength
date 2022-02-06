@@ -3,4 +3,9 @@ import ReactDOM from 'react-dom';
 
 import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+	<div style={{ backgroundColor: '#395c6bff' }}>
+		<App />
+	</div>,
+	document.getElementById('root'),
+);

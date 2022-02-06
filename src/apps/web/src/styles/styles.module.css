@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat&display=swap');
+
+.logo {
+	color: #dff8ebff;
+	font-family: 'Lobster', cursive;
+}
+
+.body {
+	font-family: 'Montserrat', sans-serif;
+}
