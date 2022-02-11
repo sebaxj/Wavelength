@@ -7,18 +7,14 @@ const Footer: React.FC = () => {
         <div>
             <Row className="justify-content-center">
                 <Col align="center">
-                <Logo />
+                    <Logo />
                 </Col>
             </Row>
             <Row className="justify-content-center">
-                <Col align="center">
-                CS147 Introduction to Human Computer Interaction - Winter 2022
-                </Col>
+                <Col align="center">CS147 Introduction to Human Computer Interaction - Winter 2022</Col>
             </Row>
             <Row className="justify-content-center">
-                <Col align="center">
-                Stanford University
-                </Col>
+                <Col align="center">Stanford University</Col>
             </Row>
         </div>
     );

@@ -16,40 +16,38 @@ const App: React.FC = () => {
     return (
         // APP
         <Container>
-        <div style={{textAlign: "center"}}>
-            {/* NAVBAR */}
-            <NavBar />
+            <div style={{ textAlign: 'center' }}>
+                {/* NAVBAR */}
+                <NavBar />
 
-            {/* DESCRIPTION */}
-            <div className="app-section">
-            <h1 id="about">About</h1>
-            <Description />
+                {/* DESCRIPTION */}
+                <div className="app-section">
+                    <h1 id="about">About</h1>
+                    <Description />
+                </div>
+
+                {/* EMBEDDED VIDEO */}
+                <div className="app-section">
+                    <Video />
+                </div>
+
+                {/* DELIVERABLES */}
+                <div className="app-section">
+                    <h1 id="deliverables">Deliverables</h1>
+                    <Deliverables />
+                </div>
+
+                {/* TEAM */}
+                <div className="app-section">
+                    <h1 id="team">Team</h1>
+                    <Team />
+                </div>
+
+                {/* FOOTER */}
+                <div className="app-section">
+                    <Footer />
+                </div>
             </div>
-
-            {/* EMBEDDED VIDEO */}
-            <div className="app-section">
-            <Video />
-            </div>
-
-            {/* DELIVERABLES */}
-            <div className="app-section">
-            <h1 id="deliverables">Deliverables</h1>
-            <Deliverables />
-            </div>
-
-            {/* TEAM */}
-            <div className="app-section">
-            <h1 id="team">Team</h1>
-            <Team />
-            </div>
-
-            {/* FOOTER */}
-            <div className="app-section">
-            <Footer />
-            </div>
-            
-
-        </div>
         </Container>
     );
 };

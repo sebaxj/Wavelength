@@ -7,7 +7,7 @@ const Logo: React.FC = () => {
         //     <h1 className="logo-heading">Wavelength</h1>
         // </div>
         <div>
-        <img
+            <img
                 alt="Wavelength Logo"
                 src="../static/logo.svg"
                 width="30"
