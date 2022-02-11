@@ -11,7 +11,7 @@ const Team: React.FC = () => {
                         <Col><img src="../static/seb.png" alt="Beautiful picture of Seb" className="team-picture" /></Col>
                     </Row>
                     <Row>
-                        <Col>Sebastian J</Col>
+                        <Col><b>Sebastian J</b></Col>
                     </Row>
                     <Row>
                         <Col>Development</Col>
@@ -22,7 +22,7 @@ const Team: React.FC = () => {
                         <Col><img src="../static/connor.jpg" alt="Beautiful picture of Connor" className="team-picture" /></Col>
                     </Row>
                     <Row>
-                        <Col>Connor H</Col>
+                        <Col><b>Connor H</b></Col>
                     </Row>
                     <Row>
                         <Col>Development</Col>
@@ -33,7 +33,7 @@ const Team: React.FC = () => {
                         <Col><img src="../static/corbin.jpg" alt="Beautiful picture of Corbin" className="team-picture" /></Col>
                     </Row>
                     <Row>
-                        <Col>Corbin S</Col>
+                        <Col><b>Corbin S</b></Col>
                     </Row>
                     <Row>
                         <Col>Design</Col>
@@ -44,7 +44,7 @@ const Team: React.FC = () => {
                         <Col><img src="../static/steven.jpg" alt="Beautiful picture of Steven" className="team-picture" /></Col>
                     </Row>
                     <Row>
-                        <Col>Steven K</Col>
+                        <Col><b>Steven K</b></Col>
                     </Row>
                     <Row>
                         <Col>Design</Col>

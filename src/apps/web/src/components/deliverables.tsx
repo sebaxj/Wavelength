@@ -19,8 +19,8 @@ const Deliverables: React.FC = () => {
       </tr>
       <tr>
         <td>Concept Video</td>
-        <td>MP4</td>
-        <td></td>
+        <td><a href="https://www.youtube.com/watch?v=CsM0QInyM2k">YouTube</a></td>
+        <td><a href="../static/concept.mp4" download>MP4</a></td>
       </tr>
       <tr>
         <td>Concept Video Presentation</td>
@@ -34,7 +34,7 @@ const Deliverables: React.FC = () => {
       </tr>
       <tr>
         <td>Lo-Fi Prototype Report</td>
-        <td>PDF</td>
+        <td><a href="../static/lofi_report.pdf" download>PDF</a></td>
         <td></td>
       </tr>
     </tbody>

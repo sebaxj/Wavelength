@@ -1,23 +1,32 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
+import Logo from './logo';
 
 const Description: React.FC = () => {
     return (
       <div>
-        <Row className="justify-content-center">
-            <Col align="center">
-            WAVELENGTH
-            </Col>
-        </Row>
-        <Row className="justify-content-center">
-            <Col align="center">
-            Connecting compatible music listeners
-            </Col>
-        </Row>
-        <Row className="justify-content-center">
-            <Col align="center">
-            It can be hard to find friends with the same taste in music… with Wavelength, meet nearby friends with compatible music fans! 
-            </Col>
+        <Row>
+          <Col>
+          <img src="../static/soundwave.png" width="100%"/>
+          </Col>
+
+          <Col className='my-auto'>
+            <Row>
+                <Col>
+                <Logo /> 
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                <b>Connecting compatible music listeners</b>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                It can be hard to find friends with the same taste in music. With Wavelength, meet nearby friends with compatible music fans! 
+                </Col>
+            </Row>
+          </Col>
         </Row>
     </div>
     );

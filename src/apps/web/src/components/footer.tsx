@@ -1,4 +1,5 @@
 import React from 'react';
+import Logo from './logo';
 import { Row, Col } from 'react-bootstrap';
 
 const Footer: React.FC = () => {
@@ -6,7 +7,7 @@ const Footer: React.FC = () => {
         <div>
             <Row className="justify-content-center">
                 <Col align="center">
-                WAVELENGTH
+                <Logo />
                 </Col>
             </Row>
             <Row className="justify-content-center">

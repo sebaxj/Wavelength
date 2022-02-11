@@ -1,5 +1,5 @@
 import React from 'react';
-// import Logo from './logo';
+import Logo from './logo';
 import '../styles/app.css';
 import { Container, Navbar, Nav } from 'react-bootstrap';
 
@@ -8,7 +8,9 @@ const NavBar: React.FC = () => {
         // <div>
         <Navbar collapseOnSelect expand="lg" variant="light">
         <Container>
-        <Navbar.Brand href="#home">WAVELENGTH</Navbar.Brand>
+        <Navbar.Brand href="#home">
+            <Logo />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
