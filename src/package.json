@@ -2,7 +2,10 @@
 	"name": "turborepo-basic-shared",
 	"version": "0.0.0",
 	"private": true,
-	"workspaces": ["apps/*", "packages/*"],
+	"workspaces": [
+		"apps/*",
+		"packages/*"
+	],
 	"scripts": {
 		"build": "turbo run build",
 		"dev": "turbo run dev --parallel",
@@ -11,11 +14,15 @@
 	},
 	"devDependencies": {
 		"prettier": "^2.5.1",
-		"turbo": "latest"
+		"turbo": "latest",
+		"webpack-cli": "^4.9.2"
 	},
 	"engines": {
 		"npm": ">=7.0.0",
 		"node": ">=14.0.0"
 	},
-	"packageManager": "npm@8.1.0"
+	"packageManager": "npm@8.1.0",
+	"dependencies": {
+		"webpack": "^5.68.0"
+	}
 }
