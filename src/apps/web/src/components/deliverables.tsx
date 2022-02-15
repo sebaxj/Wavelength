@@ -183,6 +183,37 @@ const Deliverables: React.FC = () => {
                         </td>
                         <td></td>
                     </tr>
+                    <tr>
+                        <td>Med-Fi Prototype Presentation</td>
+                        <td>
+                            <a
+                                href="https://web.stanford.edu/class/cs147/projects/BecomingIron-Man/Wavelength/static/medfi.pdf"
+                                target="_blank"
+                            >
+                                PDF
+                            </a>
+                        </td>
+                        <td>
+                            <a
+                                href="https://web.stanford.edu/class/cs147/projects/BecomingIron-Man/Wavelength/static/medfi.pptx"
+                                target="_blank"
+                            >
+                                PPT
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Med-Fi Prototype README</td>
+                        <td>
+                            <a
+                                href="https://web.stanford.edu/class/cs147/projects/BecomingIron-Man/Wavelength/static/README.pdf"
+                                target="_blank"
+                            >
+                                PDF
+                            </a>
+                        </td>
+                        <td></td>
+                    </tr>
                 </tbody>
             </Table>
         </div>
