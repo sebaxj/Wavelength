@@ -7,7 +7,7 @@ const Description: React.FC = () => {
         <div>
             <Row>
                 <Col>
-                    <img src="../static/soundwave.png" width="100%" />
+                    <img src={require('../static/soundwave.png')} width="100%" />
                 </Col>
 
                 <Col className="my-auto">

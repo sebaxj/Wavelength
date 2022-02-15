@@ -9,7 +9,11 @@ const Team: React.FC = () => {
                 <Col align="center">
                     <Row>
                         <Col>
-                            <img src="../static/seb.png" alt="Beautiful picture of Seb" className="team-picture" />
+                            <img
+                                src={require('../static/seb.png')}
+                                alt="Beautiful picture of Seb"
+                                className="team-picture"
+                            />
                         </Col>
                     </Row>
                     <Row>
@@ -25,7 +29,7 @@ const Team: React.FC = () => {
                     <Row>
                         <Col>
                             <img
-                                src="../static/connor.jpg"
+                                src={require('../static/connor.jpg')}
                                 alt="Beautiful picture of Connor"
                                 className="team-picture"
                             />
@@ -44,7 +48,7 @@ const Team: React.FC = () => {
                     <Row>
                         <Col>
                             <img
-                                src="../static/corbin.jpg"
+                                src={require('../static/corbin.jpg')}
                                 alt="Beautiful picture of Corbin"
                                 className="team-picture"
                             />
@@ -63,7 +67,7 @@ const Team: React.FC = () => {
                     <Row>
                         <Col>
                             <img
-                                src="../static/steven.jpg"
+                                src={require('../static/steven.jpg')}
                                 alt="Beautiful picture of Steven"
                                 className="team-picture"
                             />
