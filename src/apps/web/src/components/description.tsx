@@ -6,11 +6,11 @@ const Description: React.FC = () => {
     return (
         <div>
             <Row>
-                <Col>
+                <Col md={6}>
                     <img src={require('../static/soundwave.png')} width="100%" />
                 </Col>
 
-                <Col className="my-auto">
+                <Col md={6} className="my-auto">
                     <Row>
                         <Col>
                             <Logo />
