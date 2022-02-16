@@ -9,7 +9,7 @@ const Logo: React.FC = () => {
         <div>
             <img
                 alt="Wavelength Logo"
-                src="../static/logo.svg"
+                src={require('../static/logo.svg')}
                 width="30"
                 height="30"
                 className="d-inline-block align-top"
