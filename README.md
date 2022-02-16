@@ -1,5 +1,11 @@
 # CS 147
 
+## TODO:
+
+1. Fix `static` bundling issue and change absolute URLS to relative URLS.
+2. Add Paralax background and a few other components to _"spice"_ up the UI.
+3. Reconfigue `ESLINT`, `prettier`, and `tsconfig`.
+
 ## Development Instructions
 
 To start the development server with hot reload:
@@ -34,10 +40,12 @@ npm run build
 
 The build directory can be found in `apps/web/dist/`
 
-4. Upload the `dist/` directory to the Stanford AFS server:
+4. Upload the `dist/` and `static` directories to the Stanford AFS server:
+   **BEFORE THIS: MOVE ALL FILES ON MYTH AFS SERVER INTO `old` DIRECTORY TO PREVENT CONFLICTS**
 
 ```bash
 scp apps/web/dist/* [SUNet ID]@myth.stanford.edu:/afs/ir/class/cs147/WWW/projects/BecomingIron-Man/Wavelength
+scp -r apps/web/src/static [SUNet ID]@myth.stanford.edu:/afs/ir/class/cs147/WWW/projects/BecomingIron-Man/Wavelength
 ```
 
 ## Contributors
