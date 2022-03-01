@@ -40,7 +40,7 @@ npm run build
 
 The build directory can be found in `apps/web/dist/`
 
-4. Upload the `dist/` and `static` directories to the Stanford AFS server:
+4. Upload the `dist/` and `static` directories to the Stanford AFS server:  
    **BEFORE THIS: MOVE ALL FILES ON MYTH AFS SERVER INTO `old` DIRECTORY TO PREVENT CONFLICTS**
 
 ```bash
@@ -54,7 +54,7 @@ scp -r apps/web/src/static [SUNet ID]@myth.stanford.edu:/afs/ir/class/cs147/WWW/
 
 ```bash
 cd src/native
-npm start # you can also use: expo start
+npm run dev # you can also use: expo start
 ```
 
 ## Contributors
