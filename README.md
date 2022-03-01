@@ -48,6 +48,15 @@ scp apps/web/dist/* [SUNet ID]@myth.stanford.edu:/afs/ir/class/cs147/WWW/project
 scp -r apps/web/src/static [SUNet ID]@myth.stanford.edu:/afs/ir/class/cs147/WWW/projects/BecomingIron-Man/Wavelength
 ```
 
+## Native App Development Instructions
+
+1. Navigate to `apps/native` directory and run expo
+
+```bash
+cd src/native
+npm start # you can also use: expo start
+```
+
 ## Contributors
 
 Connor Hogan  
