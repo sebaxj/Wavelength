@@ -2,9 +2,10 @@
 
 ## TODO:
 
-1. Fix `static` bundling issue and change absolute URLS to relative URLS.
-2. Add Paralax background and a few other components to _"spice"_ up the UI.
-3. Reconfigue `ESLINT`, `prettier`, and `tsconfig`.
+1. See `/src/src/apps/native/App.js`
+2. Fix `static` bundling issue and change absolute URLS to relative URLS.
+3. Add Paralax background and a few other components to _"spice"_ up the UI.
+4. Reconfigue `ESLINT`, `prettier`, and `tsconfig`.
 
 ## Development Instructions
 
