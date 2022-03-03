@@ -1,8 +1,8 @@
-const express = require('express')
-const TrackCtrl = require('../controllers/track-ctrl')
+const express = require('express');
+const TrackCtrl = require('../controllers/track-ctrl');
 
-const router = express.Router()
+const router = express.Router();
 
-router.get('/track/:query', TrackCtrl.searchTracks)
+router.get('/track/:query', TrackCtrl.searchTracks);
 
-module.exports = router
+module.exports = router;
