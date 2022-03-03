@@ -52,7 +52,7 @@ const Tab = createBottomTabNavigator();
 // boolean variable to determine if user us logged in or not
 // if yes : display the Activity | Friends | Profile screens
 // if no : display the Login | Sign Up screens
-let isLoggedIn = true;
+let isLoggedIn = false;
 
 export default function App() {
 	let [fontsLoaded] = useFonts({
@@ -93,6 +93,7 @@ export default function App() {
 							fontFamily: 'Montserrat_500Medium',
 						},
 					}}
+					initialRouteName={isLoggedIn ? 'Profile' : 'Signup'}
 				>
 					{isLoggedIn ? (
 						<Tab.Group>
