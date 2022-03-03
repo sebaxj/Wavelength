@@ -1,4 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
+// import { useState } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import {
@@ -44,6 +45,9 @@ const ProfileScreen = () => {
 		Montserrat_800ExtraBold_Italic,
 		Montserrat_900Black_Italic,
 	});
+
+	// const [state, setState] = useState(initialState)
+
 	if (!fontsLoaded) {
 		return <AppLoading />;
 	} else {
