@@ -1,6 +1,10 @@
+import api from '../api'
+
+import connorData from '../assets/blah.json';
+
 import { StatusBar } from 'expo-status-bar';
-// import { useState } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, Image, FlatList, ScrollView } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import {
 	useFonts,
@@ -24,6 +28,17 @@ import {
 	Montserrat_900Black_Italic,
 } from '@expo-google-fonts/montserrat';
 
+
+const formatPlaylist = () => {
+	// let output = connorData.items
+	let output = connorData.items.map( track => {
+		return (<Image style={styles.picture} source={track.track.album.images[0].url} key={track.track.album.id} />)
+		// console.log(track.track.album.images[0].url)
+	})
+	// console.log(output)
+	return output
+}
+
 const ProfileScreen = () => {
 	let [fontsLoaded] = useFonts({
 		Montserrat_100Thin,
@@ -46,7 +61,25 @@ const ProfileScreen = () => {
 		Montserrat_900Black_Italic,
 	});
 
-	// const [state, setState] = useState(initialState)
+	const [user, setUser] = useState({})
+
+	useEffect(() => {
+		let mounted = true;
+		api.getUserById('621e9e6c9429c44dc023cfae').then( output => {
+			const loadedUser = output.data.data
+			if (mounted) {
+				setUser(loadedUser)
+			}
+		  })
+		return () => mounted = false;
+	  }, [])
+
+	// formatPlaylist()
+
+	// api.getUserById('621e9e6c9429c44dc023cfae').then( output => {
+	// 	const loadedUser = output.data.data
+	// 	setUser(loadedUser)
+	// }).catch (err => console.log(err))
 
 	if (!fontsLoaded) {
 		return <AppLoading />;
@@ -54,16 +87,26 @@ const ProfileScreen = () => {
 		return (
 			<View style={[styles.container, { flexDirection: 'column' }]}>
 				<View style={{ marginTop: 30, marginBottom: 30 }}>
-					<Image style={styles.picture} source={require('../assets/corbin.jpeg')} />
+					<Image style={styles.picture} source={user.avatar} />
 				</View>
 				<View style={{ marginTop: 20, marginBottom: 20 }}>
-					<Text style={styles.name}>NAME FROM DB HERE</Text>
+					<Text style={styles.name}>{user.user_name}</Text>
 				</View>
 				<View style={{ marginTop: 20, marginBottom: 80 }}>
-					<Text>Location Here</Text>
+					<Text>{user.location}</Text>
 				</View>
 				<View style={{ marginTop: 20 }}>
-					<Text>Playlist Starts Here</Text>
+					<FlatList
+						data = {connorData.items}
+						renderItem = {(track) => {
+							track = track.item
+							return (<Image style={styles.picture} source={track.track.album.images[0].url} key={track.track.album.id} />)
+						}
+					}
+					/>
+					{/* <ScrollView>
+						{formatPlaylist()}
+					</ScrollView> */}
 				</View>
 				<StatusBar style="auto" />
 			</View>
