@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import {
 	useFonts,
@@ -49,8 +49,8 @@ const ProfileScreen = () => {
 	} else {
 		return (
 			<View style={[styles.container, { flexDirection: 'column' }]}>
-				<View style={{ marginTop: 60, marginBottom: 40 }}>
-					<Text>Profile Pic Here</Text>
+				<View style={{ marginTop: 30, marginBottom: 30 }}>
+					<Image style={styles.picture} source={require('../assets/corbin.jpeg')} />
 				</View>
 				<View style={{ marginTop: 20, marginBottom: 20 }}>
 					<Text style={styles.name}>NAME FROM DB HERE</Text>
@@ -78,6 +78,12 @@ const styles = StyleSheet.create({
 		fontFamily: 'Montserrat_700Bold',
 		fontSize: 28,
 		fontWeight: 'bold',
+	},
+	picture: {
+		resizeMode: 'contain',
+		height: 250,
+		width: 250,
+		borderRadius: 250 / 2,
 	},
 });
 
