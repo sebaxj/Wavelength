@@ -3,9 +3,15 @@ import { StyleSheet, Text, View } from 'react-native';
 
 const ActivityScreen = () => {
 	return (
-		<View style={styles.container}>
-			<Text>Activity Feed</Text>
-			<StatusBar style="auto" />
+		<View style={[styles.container, { flexDirection: 'column' }]}>
+			<View style={{ flexDirection: 'row' }}>
+				<Text>Activity</Text>
+				<Text>Feed</Text>
+			</View>
+			<View style={[{ flexDirection: 'row' }]}>
+				<Text>Activity</Text>
+				<Text>Feed</Text>
+			</View>
 		</View>
 	);
 };
@@ -13,9 +19,10 @@ const ActivityScreen = () => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		padding: 20,
 		backgroundColor: '#fff',
 		alignItems: 'center',
-		justifyContent: 'center',
+		justifyContent: 'flex-start',
 	},
 });
 
