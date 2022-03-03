@@ -85,7 +85,7 @@ const ProfileScreen = () => {
 		return <AppLoading />;
 	} else {
 		return (
-			<View style={[styles.container, { flexDirection: 'column' }]}>
+			<View style={[styles.container, { flexDirection: 'column', flex: 1 }]}>
 				<View style={{ marginTop: 30, marginBottom: 30 }}>
 					<Image style={styles.picture} source={user.avatar} />
 				</View>
@@ -95,18 +95,19 @@ const ProfileScreen = () => {
 				<View style={{ marginTop: 20, marginBottom: 80 }}>
 					<Text>{user.location}</Text>
 				</View>
-				<View style={{ marginTop: 20 }}>
-					<FlatList
+				<View style={{ marginTop: 20, flex: 1 }}>
+					{/* <FlatList
 						data = {connorData.items}
 						renderItem = {(track) => {
 							track = track.item
+							console.log(track.track.album.images[0].url)
 							return (<Image style={styles.picture} source={track.track.album.images[0].url} key={track.track.album.id} />)
 						}
 					}
-					/>
-					{/* <ScrollView>
+					/> */}
+					<ScrollView>
 						{formatPlaylist()}
-					</ScrollView> */}
+					</ScrollView>
 				</View>
 				<StatusBar style="auto" />
 			</View>
