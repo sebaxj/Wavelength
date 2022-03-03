@@ -4,11 +4,12 @@ const Schema = mongoose.Schema
 const User = new Schema(
     {
         user_name: { type: String, required: true },
+        avatar: { type: String, required: true },
+        friends: [{ type: [Schema.Types.ObjectId], ref: 'users', required: true}],
+        
         spotify_connected: { type: Boolean, required: true },
         spotify_access_token: { type: String, required: false },
         spotify_refresh_token: { type: String, required: false },
-        avatar: { type: String, required: false },
-        friends: [{ type: [Schema.Types.ObjectId], ref: 'users', required: true}]
 
     },
     { timestamps: true },
