@@ -118,7 +118,20 @@ const ProfileScreen = () => {
 	} else {
 		return (
 			<SafeAreaView style={styles.safeArea}>
-				{/*
+				<ScrollView contentContainerStyle={{ alignItems: 'center' }}>
+					<View style={{ marginTop: 0, marginBottom: 0 }}>
+						<Image style={styles.picture} source={{ uri: user.avatar }} />
+					</View>
+					<View style={{ marginTop: 20, marginBottom: 0 }}>
+						<Text style={styles.name}>{user.user_name}</Text>
+					</View>
+					<View style={{ marginTop: 4, marginBottom: 10 }}>
+						<Text style={{ fontFamily: 'Montserrat_500Medium' }}>{user.location}</Text>
+					</View>
+					<View style={{ marginTop: 10, marginBottom: 10 }}>
+						<Text style={{ fontFamily: 'Montserrat_500Medium', fontSize: 18 }}>Liked Songs</Text>
+					</View>
+					{/*
 				<View style={[styles.container, { flexDirection: 'column', flex: 1 }]}>
 					<ScrollView contentContainerStyle={styles.container}>
 						<View style={{ marginTop: 30, marginBottom: 30 }}>
@@ -148,7 +161,7 @@ const ProfileScreen = () => {
 					<Text>Liked Songs</Text>
 				</View>
 				{/* <View style={{ marginTop: 20, flex: 1 }}> */}
-				{/* <FlatList
+					{/* <FlatList
 						data = {connorSongData.items}
 						renderItem = {(track) => {
 							track = track.item
@@ -157,45 +170,53 @@ const ProfileScreen = () => {
 						}
 					}
 					/> */}
-				<FlatList
-					data={DATA}
-					renderItem={({ item, index, separators }) => (
-						<View style={{ marginTop: 5, marginBottom: 5, flexDirection: 'row', width: '100%' }}>
-							<TouchableHighlight
-								onPress={() => {
-									axios({
-										method: 'get',
-										url: `https://api.spotify.com/v1/tracks/${item.id}`,
-										headers: {
-											Authorization:
-												'Bearer BQACdWln8Z-MzFt9Ta7cRBixOeTsfiSU7QJPtQCJ5gKmuvvfZMZ1t1KFF7TQOI6STSJ0cXW6Dzm7MHc2nTqyngwH8i-WV15MsA9ly-2GNtIPFS1isk21qInlBTsDI_9oQjq1ogf4Zcb_nXZdy0VeZiBxq_R1aV5lfFUTAgRcl7VPsPq3ftSJuHfprkxOMLoCjSLDZMSNwZZQGg5y',
-										},
-									})
-										.then(function (response) {
-											// handle success
-											console.log(response.preview_url);
+					<FlatList
+						data={DATA}
+						renderItem={({ item, index, separators }) => (
+							<View style={{ marginTop: 5, marginBottom: 5, flexDirection: 'row', width: '100%' }}>
+								<TouchableHighlight
+									onPress={() => {
+										axios({
+											method: 'get',
+											url: `https://api.spotify.com/v1/tracks/${item.id}`,
+											headers: {
+												Authorization:
+													'Bearer BQACdWln8Z-MzFt9Ta7cRBixOeTsfiSU7QJPtQCJ5gKmuvvfZMZ1t1KFF7TQOI6STSJ0cXW6Dzm7MHc2nTqyngwH8i-WV15MsA9ly-2GNtIPFS1isk21qInlBTsDI_9oQjq1ogf4Zcb_nXZdy0VeZiBxq_R1aV5lfFUTAgRcl7VPsPq3ftSJuHfprkxOMLoCjSLDZMSNwZZQGg5y',
+											},
 										})
-										.catch(function (error) {
-											// handle error
-											console.log(error);
-										});
-								}}
-								underlayColor="white"
-								activeOpacity={0.2}
-							>
-								<Image style={styles.album_picture} source={{ uri: item.albumImage }} key={item.id} />
-							</TouchableHighlight>
-							<View style={{ alignItems: 'flex-start', width: '80%' }}>
-								<Text numberOfLines={1} style={{ fontFamily: 'Montserrat_300Light', fontSize: 16 }}>
-									{item.trackName}
-								</Text>
-								<Text numberOfLines={1} style={{ fontFamily: 'Montserrat_100Thin', fontSize: 14 }}>
-									{item.artistName}
-								</Text>
+											.then(function (response) {
+												// handle success
+												console.log(response.preview_url);
+											})
+											.catch(function (error) {
+												// handle error
+												console.log(error);
+											});
+									}}
+									underlayColor="white"
+									activeOpacity={0.2}
+								>
+									<Image
+										style={styles.album_picture}
+										source={{ uri: item.albumImage }}
+										key={item.id}
+									/>
+								</TouchableHighlight>
+								<View style={{ alignItems: 'flex-start', width: '80%' }}>
+									<Text
+										numberOfLines={1}
+										style={{ fontFamily: 'Montserrat_400Regular', fontSize: 16 }}
+									>
+										{item.trackName}
+									</Text>
+									<Text numberOfLines={1} style={{ fontFamily: 'Montserrat_300Light', fontSize: 14 }}>
+										{item.artistName}
+									</Text>
+								</View>
 							</View>
-						</View>
-					)}
-				/>
+						)}
+					/>
+				</ScrollView>
 			</SafeAreaView>
 		);
 	}
@@ -222,9 +243,9 @@ const styles = StyleSheet.create({
 	},
 	picture: {
 		resizeMode: 'contain',
-		height: 250,
-		width: 250,
-		borderRadius: 250 / 2,
+		height: 200,
+		width: 200,
+		borderRadius: 200 / 2,
 	},
 	album_picture: {
 		resizeMode: 'contain',
