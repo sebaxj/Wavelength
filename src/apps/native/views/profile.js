@@ -65,7 +65,7 @@ const formatPlaylist = () => {
 	return output;
 };
 
-const DATA = connorData.items.map((track) => {
+const DATA = connorSongData.items.map((track) => {
 	return {
 		id: track.track.id,
 		albumImage: track.track.album.images[0].url,
