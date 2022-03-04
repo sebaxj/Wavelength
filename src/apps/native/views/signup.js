@@ -40,7 +40,7 @@ const discovery = {
 
 WebBrowser.maybeCompleteAuthSession();
 
-const SignupScreen = () => {
+const SignupScreen = (props) => {
 	let [fontsLoaded] = useFonts({
 		Montserrat_100Thin,
 		Montserrat_200ExtraLight,
@@ -67,7 +67,7 @@ const SignupScreen = () => {
 		responseType: ResponseType.Token,
 		  clientId: SPOTIFY_CLIENT_ID,
 		  clientSecret: SPOTIFY_CLIENT_SECRET,
-		  scopes: ['user-library-read'],
+		  scopes: ['user-library-read', 'user-read-recently-played'],
 		  // In order to follow the "Authorization Code Flow" to fetch token after authorizationEndpoint
 		  // this must be set to false
 		  usePKCE: false,
@@ -87,6 +87,7 @@ const SignupScreen = () => {
 		  const { access_token } = response.params;
 
 		  await SecureStore.setItemAsync('spotify_access_token', access_token)
+		  await props.onLogin()
 		//   const token = await SecureStore.getItemAsync('spotify_access_token')
 		//   console.log("TOKEN", token)
 

@@ -95,11 +95,16 @@ export default function App() {
 
 	const [isLoggedIn, setLoginStatus] = useState(false);
 
-	useEffect(async () => {
-		// await logout()
+	async function onLogin () {
+		console.log("IN HERE CONNOR ALMOST THERE")
 		let l = await loginStatus();
 		setLoginStatus(l);
-	});
+	}
+	// useEffect(async () => {
+	// 	// await logout()
+	// 	let l = await loginStatus();
+	// 	setLoginStatus(l);
+	// });
 
 	const linking = {
 		prefixes: [prefix],
@@ -156,7 +161,7 @@ export default function App() {
 							fontFamily: 'Montserrat_500Medium',
 						},
 					}}
-					initialRouteName={isLoggedIn ? 'Activity' : 'Signup'}
+					initialRouteName={isLoggedIn ? 'Profile' : 'Signup'}
 				>
 					{isLoggedIn ? (
 						<Tab.Group>
@@ -209,7 +214,7 @@ export default function App() {
 							/>
 							<Tab.Screen
 								name="Signup"
-								component={SignupScreen}
+								component={() => <SignupScreen onLogin={onLogin} />}
 								options={{
 									headerTitle: 'Sign Up',
 									tabBarLabel: 'Sign Up',
