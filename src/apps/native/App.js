@@ -52,7 +52,7 @@ const Tab = createBottomTabNavigator();
 // boolean variable to determine if user us logged in or not
 // if yes : display the Activity | Friends | Profile screens
 // if no : display the Login | Sign Up screens
-let isLoggedIn = false;
+let isLoggedIn = true;
 
 export default function App() {
 	let [fontsLoaded] = useFonts({
