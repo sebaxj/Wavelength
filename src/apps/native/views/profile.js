@@ -1,7 +1,8 @@
 import api from '../api';
 const axios = require('axios').default;
 
-import connorData from '../assets/blah.json';
+import connorSongData from '../assets/blah.json';
+import connorUserData from '../assets/connor_data.json';
 
 import { StatusBar } from 'expo-status-bar';
 import { useState, useEffect } from 'react';
@@ -43,13 +44,12 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 const apiURL = 'https://api.spotify.com/v1/tracks/';
 
 const formatPlaylist = () => {
-	// let output = connorData.items
-	let output = connorData.items.map((track) => {
+	let output = connorSongData.items.map((track) => {
 		return (
 			<View style={{ marginTop: 5, marginBottom: 5, flexDirection: 'row', width: '100%' }}>
 				<Image
 					style={styles.album_picture}
-					source={track.track.album.images[0].url}
+					source={{ uri: track.track.album.images[0].url }}
 					key={track.track.album.id}
 				/>
 				<View style={{ alignItems: 'flex-start', width: '80%' }}>
@@ -99,22 +99,19 @@ const ProfileScreen = () => {
 	});
 
 	const [user, setUser] = useState({});
-
 	useEffect(() => {
 		let mounted = true;
-		api.getUserById('621e9e6c9429c44dc023cfae').then((output) => {
-			const loadedUser = output.data.data;
-			if (mounted) {
-				setUser(loadedUser);
-			}
-		});
+		if (mounted) {
+			setUser(connorUserData);
+		}
+		// api.getUserById('621e9e6c9429c44dc023cfae').then((output) => {
+		//     const loadedUser = output.data.data;
+		//     if (mounted) {
+		//         setUser(loadedUser);
+		//     }
+		// });
 		return () => (mounted = false);
 	}, []);
-
-	// api.getUserById('621e9e6c9429c44dc023cfae').then( output => {
-	// 	const loadedUser = output.data.data
-	// 	setUser(loadedUser)
-	// }).catch (err => console.log(err))
 
 	if (!fontsLoaded) {
 		return <AppLoading />;
@@ -136,11 +133,30 @@ const ProfileScreen = () => {
 						<View style={{ marginTop: 20, marginBottom: 30 }}>
 							<Text>Liked Songs</Text>
 						</View>
-						{formatPlaylist()}
-						<StatusBar style="auto" />
-					</ScrollView>
+			// <View style={[styles.container, { flexDirection: 'column', flex: 1 }]}>
+				<ScrollView contentContainerStyle={styles.container}>
+				<View style={{ marginTop: 30, marginBottom: 30 }}>
+					<Image style={styles.picture} source={{uri: user.avatar}} />
 				</View>
-				*/}
+				<View style={{ marginTop: 20, marginBottom: 20 }}>
+					<Text style={styles.name}>{user.user_name}</Text>
+				</View>
+				<View style={{ marginTop: 20, marginBottom: 30 }}>
+					<Text>{user.location}</Text>
+				</View>
+				<View style={{ marginTop: 20, marginBottom: 30 }}>
+					<Text>Liked Songs</Text>
+				</View>
+				{/* <View style={{ marginTop: 20, flex: 1 }}> */}
+				{/* <FlatList
+						data = {connorSongData.items}
+						renderItem = {(track) => {
+							track = track.item
+							console.log(track.track.album.images[0].url)
+							return (<Image style={styles.picture} source={track.track.album.images[0].url} key={track.track.album.id} />)
+						}
+					}
+					/> */}
 				<FlatList
 					data={DATA}
 					renderItem={({ item, index, separators }) => (
