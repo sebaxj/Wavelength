@@ -1,0 +1,19 @@
+{
+    "_id": {
+        "$oid": "621e9e6c9429c44dc023cfae"
+    },
+    "user_name": "connor",
+    "bio": "confused most of the time but generally in good spirits",
+    "createdAt": {
+        "$date": "2022-03-01T22:30:04.075Z"
+    },
+    "updatedAt": {
+        "$date": "2022-03-01T22:30:04.075Z"
+    },
+    "__v": 0,
+    "spotify_connected": true,
+    "spotify_access_token": "BQAgL8M-MIR3ldI7Yy0VEocQ-s8dPeEYj_54LS_CpH877d2kU1vu2WDZjPaMnOakKErZbXrSJx9xw8-Zj4_puqlQbtP-79g3hbzdVEuuZyqEXPvHr2-8qaa1pyu22TYB8lG7UA_JYhYcyXbZ3jKOmaHW_SBmgO9JBHgrzg",
+    "spotify_refresh_token": "",
+    "avatar": "https://cdn.rockhopper.app/images/6910539456031171-connor-avatar.png",
+    "location": "Calabasas, CA"
+}

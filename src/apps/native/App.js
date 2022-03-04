@@ -8,6 +8,10 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useState, useEffect } from 'react';
+import * as SecureStore from 'expo-secure-store';
+
+import * as Linking from 'expo-linking';
 
 // fonts
 import AppLoading from 'expo-app-loading';
@@ -49,10 +53,24 @@ import LoginScreen from './views/login';
 // create navigator object
 const Tab = createBottomTabNavigator();
 
+// linking stuff
+const prefix = Linking.makeUrl('/');
+
 // boolean variable to determine if user us logged in or not
 // if yes : display the Activity | Friends | Profile screens
 // if no : display the Login | Sign Up screens
-let isLoggedIn = false;
+
+async function loginStatus () {
+	const token = await SecureStore.getItemAsync('spotify_access_token');
+	console.log("FOUND TOKEN", token)
+	return (token !== null)
+}
+
+async function logout () {
+	const token = await SecureStore.deleteItemAsync('spotify_access_token');
+}
+
+//   console.log("TOKEN", token)
 
 export default function App() {
 	let [fontsLoaded] = useFonts({
@@ -75,11 +93,57 @@ export default function App() {
 		Montserrat_800ExtraBold_Italic,
 		Montserrat_900Black_Italic,
 	});
+
+	const [isLoggedIn, setLoginStatus] = useState(false)
+
+	useEffect( async () => {
+		// await logout()
+		let l = await loginStatus()
+		setLoginStatus(l)
+	})
+
+	const linking = {
+		prefixes: [prefix],
+		config: {
+			screens: {
+				Activity: "activity",
+				Friends: "friends",
+				Login: "login",
+				Profile: "profile",
+				Signup: "signup",
+			}
+		}
+	}
+
+	const [data, setData] = useState(null)
+
+	function handleDeepLink (event) {
+		let data = Linking.parse(event.url)
+		setData(data)
+	}
+
+	useEffect( () => {
+		async function getInitialUrl() {
+			const initialUrl = await Linking.getInitialURL()
+			if (initialUrl) setData(Linking.parse(initialUrl))
+		}
+
+		Linking.addEventListener("url", handleDeepLink)
+		if (!data) {
+			getInitialUrl()
+		}
+		return () => {
+			Linking.removeEventListener("url")
+		}
+	}, [])
+
+	console.log(data ? JSON.stringify(data) : "APP NOT OPENED FROM DEEP LINK")
+
 	if (!fontsLoaded) {
 		return <AppLoading />;
 	} else {
 		return (
-			<NavigationContainer>
+			<NavigationContainer linking={linking}>
 				<Tab.Navigator
 					screenOptions={{
 						tabBarShowLabel: false,

@@ -1,5 +1,6 @@
 {
   "expo": {
+    "scheme": "myapp",
     "name": "Wavelength",
     "slug": "Wavelength",
     "version": "1.0.0",
