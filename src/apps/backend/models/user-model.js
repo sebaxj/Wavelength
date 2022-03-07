@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const User = new Schema(
     {
+        spotify_id: { type: String, required: true },
         user_name: { type: String, required: true },
         location: { type: String, required: true },
         avatar: { type: String, required: true },

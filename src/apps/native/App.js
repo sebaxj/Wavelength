@@ -49,6 +49,7 @@ import FriendsScreen from './views/friends';
 import ProfileScreen from './views/profile';
 import SignupScreen from './views/signup';
 import LoginScreen from './views/login';
+import apis from './api';
 
 // create navigator object
 const Tab = createBottomTabNavigator();
@@ -93,12 +94,15 @@ export default function App() {
 		Montserrat_900Black_Italic,
 	});
 
-	const [isLoggedIn, setLoginStatus] = useState(false);
+	const [isLoggedIn, setLoginStatus] = useState(true);
 
 	async function onLogin () {
 		console.log("IN HERE CONNOR ALMOST THERE")
 		let l = await loginStatus();
 		setLoginStatus(l);
+		// if (l) {
+		// 	apis.updateUserData()
+		// }
 	}
 	// useEffect(async () => {
 	// 	// await logout()

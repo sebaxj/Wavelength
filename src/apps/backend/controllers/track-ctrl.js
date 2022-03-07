@@ -39,28 +39,6 @@ createUser = async (req, res) => {
     res.send({ status: 'SUCCESS' });
 };
 
-// get a new access token given a refresh token
-refreshSpotifyToken = async (req, res) => {
-    const body = req.body;
-    await User.find({ _id: body._id }, (err, user) => {
-        if (err) {
-            return res.status(400).json({ success: false, error: err });
-        }
-        if (!user) {
-            return res.status(404).json({ success: false, error: `No matching user found` });
-        }
-
-        const refreshToken = user.spotify_refresh_token;
-        const { accessToken, refreshToken } = await refreshSpotifyToken(refreshToken);
-        console.log('ACCESS', accessToken);
-
-        user.spotify_access_token = accessToken;
-        user.spotify_refresh_token = refreshToken;
-        user.save();
-        res.send({ status: 'SUCCESS', user: user });
-    }).catch((err) => console.log(err));
-};
-
 module.exports = {
     getAllUsers,
     createUser,

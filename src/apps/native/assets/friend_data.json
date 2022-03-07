@@ -1,0 +1,41 @@
+[
+    {
+        "_id": {
+            "$oid": "62228ebd832b1db3658fdb75"
+        },
+        "user_name": "Connor",
+        "location": "Calabasas, CA",
+        "avatar": "https://i.scdn.co/image/ab6775700000ee85c481e249f22585f0c118942b",
+        "friends": [],
+        "liked_songs": [],
+        "spotify_connected": true,
+        "spotify_access_token": "BQDw3wPHOSn-JxEcUCORaSmQoc4s2tvGCcCljgZOHzPiZ93llDFzZjn7B6OT7CV3JB-V4a5QZfKdS-Gu6TAFptmSkKlHEma1ngP803IMIxXwQfdj-2QIH_PwtegO8ZcL-_Lz_AU-aAnQ7sfnwMf5CkOXNFZiEoiKUxdY5zUw6UVY0z2I9e-DGJGqR8ZwI-9mZ4_SxyLu4A_DzywgAlk",
+        "createdAt": {
+            "$date": "2022-03-04T22:12:13.741Z"
+        },
+        "updatedAt": {
+            "$date": "2022-03-04T22:12:13.741Z"
+        },
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "62267f6d64b9f5243e73359b"
+        },
+        "spotify_id": "j5f991la2jzpjdw2ycrapelv9",
+        "user_name": "Corbin Schmeil",
+        "location": "Austin, TX",
+        "avatar": "https://i.scdn.co/image/ab6775700000ee859b4a88ce129b7d455dbb3d1d",
+        "friends": [],
+        "liked_songs": [],
+        "spotify_connected": true,
+        "spotify_access_token": "BQAhQumUgWSJPaP4-OyeGa8YbxPas1IMsZXwRx0NHPeYx_RjwwOK5tHkWghOVEU4MdgyPZ2UDDgNfI_Diy6WuVxE47pJep7UcxapZM1iJGiZsvrFkO7rOzX4F9l0QfacnpQ6nhzCsMijoq7KBymTyX-OcTVIEm9kQhQ0yS94s0znQuU83Eftqw",
+        "createdAt": {
+            "$date": "2022-03-07T21:55:57.458Z"
+        },
+        "updatedAt": {
+            "$date": "2022-03-07T21:55:57.458Z"
+        },
+        "__v": 0
+    }   
+]
