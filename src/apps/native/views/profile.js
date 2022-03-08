@@ -116,6 +116,7 @@ const ProfileScreen = () => {
 	}, []);
 
 	// audio player
+	// TODO: FIX THIS
 	const playSound = async (path) => {
 		const sound = new Audio.Sound();
 		try {
