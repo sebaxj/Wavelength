@@ -117,12 +117,14 @@ const ProfileScreen = () => {
 	// TODO: FIX THIS
 	// Need to change album opacity on play
 	// Bug with changing "isPlaying"
+	// handle error rejection with no valid link
+	// fix onPress method to fetch from spotify each request incase the link has changed
 	const [playbackObject, setPlaybackObject] = useState(null);
 
 	// on first render, setup audio player as a state component
 	useEffect(() => {
 		if (playbackObject === null) {
-			setPlaybackObject(new Audio.Sound());
+			setPlaybackObject(new Ajdio.Sound());
 		}
 	}, []);
 
