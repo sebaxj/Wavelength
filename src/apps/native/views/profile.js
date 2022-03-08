@@ -76,8 +76,6 @@ const DATA = connorSongData.items.map((track) => {
 	};
 });
 
-console.log(DATA);
-
 const ProfileScreen = () => {
 	let [fontsLoaded] = useFonts({
 		Montserrat_100Thin,
@@ -117,16 +115,40 @@ const ProfileScreen = () => {
 
 	// audio player
 	// TODO: FIX THIS
-	const playSound = async (path) => {
-		const sound = new Audio.Sound();
-		try {
-			console.log('Loading Sound');
-			await sound.loadAsync({ uri: path });
+	// Need to change album opacity on play
+	// Bug with changing "isPlaying"
+	const [playbackObject, setPlaybackObject] = useState(null);
 
-			console.log('Playing Sound...');
-			await sound.playAsync();
-		} catch (error) {
-			console.log(error);
+	// on first render, setup audio player as a state component
+	useEffect(() => {
+		if (playbackObject === null) {
+			setPlaybackObject(new Audio.Sound());
+		}
+	}, []);
+
+	const playSound = async (item) => {
+		// first, check status of audio player
+		let status = await playbackObject.getStatusAsync();
+
+		// second, check if that song is already playing
+		if (item.isPlaying && status.isLoaded === true) {
+			console.log('Item already playing, pausing...');
+			console.log('Unloading...');
+			playbackObject.unloadAsync();
+			item.isPlaying = false;
+		} else if (!item.isPlaying && status.isLoaded === true) {
+			console.log('Another song is playing, reloading player...');
+			playbackObject.unloadAsync();
+
+			await playbackObject.loadAsync({ uri: item.previewURL });
+			await playbackObject.playAsync();
+			item.isPlaying = true;
+		} else if (!item.isPlaying && status.isLoaded === false) {
+			console.log('Player is empty, loading...');
+
+			await playbackObject.loadAsync({ uri: item.previewURL });
+			await playbackObject.playAsync();
+			item.isPlaying = true;
 		}
 	};
 
@@ -134,104 +156,53 @@ const ProfileScreen = () => {
 		return <AppLoading />;
 	} else {
 		return (
-			<SafeAreaView style={styles.safeArea}>
-				<ScrollView contentContainerStyle={{ alignItems: 'center' }}>
-					<View style={{ marginTop: 0, marginBottom: 0 }}>
-						<Image style={styles.picture} source={{ uri: user.avatar }} />
-					</View>
-					<View style={{ marginTop: 20, marginBottom: 0 }}>
-						<Text style={styles.name}>{user.user_name}</Text>
-					</View>
-					<View style={{ marginTop: 4, marginBottom: 10 }}>
-						<Text style={{ fontFamily: 'Montserrat_500Medium' }}>{user.location}</Text>
-					</View>
-					<View style={{ marginTop: 10, marginBottom: 10 }}>
-						<Text style={{ fontFamily: 'Montserrat_500Medium', fontSize: 18 }}>Liked Songs</Text>
-					</View>
-					{/*
-				<View style={[styles.container, { flexDirection: 'column', flex: 1 }]}>
-					<ScrollView contentContainerStyle={styles.container}>
-						<View style={{ marginTop: 30, marginBottom: 30 }}>
-							<Image style={styles.picture} source={user.avatar} />
-						</View>
-						<View style={{ marginTop: 20, marginBottom: 20 }}>
-							<Text style={styles.name}>{user.user_name}</Text>
-						</View>
-						<View style={{ marginTop: 20, marginBottom: 30 }}>
-							<Text>{user.location}</Text>
-						</View>
-						<View style={{ marginTop: 20, marginBottom: 30 }}>
-							<Text>Liked Songs</Text>
-						</View>
-			// <View style={[styles.container, { flexDirection: 'column', flex: 1 }]}>
-				<ScrollView contentContainerStyle={styles.container}>
-				<View style={{ marginTop: 30, marginBottom: 30 }}>
-					<Image style={styles.picture} source={{uri: user.avatar}} />
-				</View>
-				<View style={{ marginTop: 20, marginBottom: 20 }}>
-					<Text style={styles.name}>{user.user_name}</Text>
-				</View>
-				<View style={{ marginTop: 20, marginBottom: 30 }}>
-					<Text>{user.location}</Text>
-				</View>
-				<View style={{ marginTop: 20, marginBottom: 30 }}>
-					<Text>Liked Songs</Text>
-				</View>
-				{/* <View style={{ marginTop: 20, flex: 1 }}> */}
-					{/* <FlatList
-						data = {connorSongData.items}
-						renderItem = {(track) => {
-							track = track.item
-							console.log(track.track.album.images[0].url)
-							return (<Image style={styles.picture} source={track.track.album.images[0].url} key={track.track.album.id} />)
-						}
-					}
-					/> */}
-					<FlatList
-						data={DATA}
-						renderItem={({ item, index, separators }) => (
-							<View style={{ marginTop: 5, marginBottom: 5, flexDirection: 'row', width: '100%' }}>
-								<TouchableHighlight
-									onPress={() => {
-										playSound(item.previewURL);
-									}}
-									underlayColor="white"
-									activeOpacity={0.2}
-								>
-									<Image
-										style={styles.album_picture}
-										source={{ uri: item.albumImage }}
-										key={item.id}
-									/>
-								</TouchableHighlight>
-								<View style={{ alignItems: 'flex-start', width: '80%' }}>
-									<Text
-										numberOfLines={1}
-										style={{ fontFamily: 'Montserrat_400Regular', fontSize: 16 }}
-									>
-										{item.trackName}
-									</Text>
-									<Text numberOfLines={1} style={{ fontFamily: 'Montserrat_300Light', fontSize: 14 }}>
-										{item.artistName}
-									</Text>
-								</View>
+			<View style={styles.container}>
+				<FlatList
+					data={DATA}
+					ListHeaderComponent={
+						<View style={[styles.container, { marginTop: 20 }]}>
+							<View style={{ marginTop: 0, marginBottom: 0 }}>
+								<Image style={styles.picture} source={{ uri: user.avatar }} />
 							</View>
-						)}
-					/>
-				</ScrollView>
-			</SafeAreaView>
+							<View style={{ marginTop: 20, marginBottom: 0 }}>
+								<Text style={styles.name}>{user.user_name}</Text>
+							</View>
+							<View style={{ marginTop: 4, marginBottom: 10 }}>
+								<Text style={{ fontFamily: 'Montserrat_500Medium' }}>{user.location}</Text>
+							</View>
+							<View style={{ marginTop: 10, marginBottom: 10 }}>
+								<Text style={{ fontFamily: 'Montserrat_500Medium', fontSize: 18 }}>Liked Songs</Text>
+							</View>
+						</View>
+					}
+					renderItem={({ item, index, separators }) => (
+						<View style={{ marginTop: 5, marginBottom: 5, flexDirection: 'row', width: '100%' }}>
+							<TouchableHighlight
+								onPress={() => {
+									playSound(item);
+								}}
+								underlayColor="white"
+								activeOpacity={0.2}
+							>
+								<Image style={styles.album_picture} source={{ uri: item.albumImage }} key={item.id} />
+							</TouchableHighlight>
+							<View style={{ alignItems: 'flex-start', width: '80%' }}>
+								<Text numberOfLines={1} style={{ fontFamily: 'Montserrat_400Regular', fontSize: 16 }}>
+									{item.trackName}
+								</Text>
+								<Text numberOfLines={1} style={{ fontFamily: 'Montserrat_300Light', fontSize: 14 }}>
+									{item.artistName}
+								</Text>
+							</View>
+						</View>
+					)}
+				/>
+			</View>
 		);
 	}
 };
 
 const styles = StyleSheet.create({
-	safeArea: {
-		flex: 1,
-		marginTop: StatusBar.currentHeight || 0,
-		backgroundColor: '#fff',
-		alignItems: 'center', // aligns items in the x direction
-		justifyContent: 'flex-start', // aligns items in the y direction
-	},
 	container: {
 		flex: 1,
 		backgroundColor: '#fff',
