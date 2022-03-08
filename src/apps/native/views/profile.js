@@ -1,11 +1,11 @@
 import api from '../api';
-const axios = require('axios').default;
 
 import connorSongData from '../assets/blah.json';
 import connorUserData from '../assets/connor_data.json';
 
 import { StatusBar } from 'expo-status-bar';
 import { useState, useEffect } from 'react';
+import { Audio } from 'expo-av';
 import {
 	StyleSheet,
 	Text,
@@ -71,6 +71,8 @@ const DATA = connorSongData.items.map((track) => {
 		albumImage: track.track.album.images[0].url,
 		trackName: track.track.name,
 		artistName: track.track.artists[0].name,
+		previewURL: track.track.preview_url,
+		isPlaying: false,
 	};
 });
 
@@ -112,6 +114,20 @@ const ProfileScreen = () => {
 		// });
 		return () => (mounted = false);
 	}, []);
+
+	// audio player
+	const playSound = async (path) => {
+		const sound = new Audio.Sound();
+		try {
+			console.log('Loading Sound');
+			await sound.loadAsync({ uri: path });
+
+			console.log('Playing Sound...');
+			await sound.playAsync();
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
 	if (!fontsLoaded) {
 		return <AppLoading />;
@@ -176,22 +192,7 @@ const ProfileScreen = () => {
 							<View style={{ marginTop: 5, marginBottom: 5, flexDirection: 'row', width: '100%' }}>
 								<TouchableHighlight
 									onPress={() => {
-										axios({
-											method: 'get',
-											url: `https://api.spotify.com/v1/tracks/${item.id}`,
-											headers: {
-												Authorization:
-													'Bearer BQACdWln8Z-MzFt9Ta7cRBixOeTsfiSU7QJPtQCJ5gKmuvvfZMZ1t1KFF7TQOI6STSJ0cXW6Dzm7MHc2nTqyngwH8i-WV15MsA9ly-2GNtIPFS1isk21qInlBTsDI_9oQjq1ogf4Zcb_nXZdy0VeZiBxq_R1aV5lfFUTAgRcl7VPsPq3ftSJuHfprkxOMLoCjSLDZMSNwZZQGg5y',
-											},
-										})
-											.then(function (response) {
-												// handle success
-												console.log(response.preview_url);
-											})
-											.catch(function (error) {
-												// handle error
-												console.log(error);
-											});
+										playSound(item.previewURL);
 									}}
 									underlayColor="white"
 									activeOpacity={0.2}
