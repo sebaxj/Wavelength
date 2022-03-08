@@ -1,4 +1,5 @@
 import api from '../api';
+import axios from 'axios';
 
 import connorSongData from '../assets/blah.json';
 import connorUserData from '../assets/connor_data.json';
@@ -41,7 +42,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 // Spotify API stuff
-const apiURL = 'https://api.spotify.com/v1/tracks/';
+const SpotifyAPI_URL = 'https://api.spotify.com/v1/tracks/';
 
 const formatPlaylist = () => {
 	let output = connorSongData.items.map((track) => {
