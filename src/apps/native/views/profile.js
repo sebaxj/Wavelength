@@ -1,6 +1,9 @@
 import api from '../api';
 import axios from 'axios';
 
+// why doesn't this work?
+// import 'dotenv/config';
+
 import connorSongData from '../assets/blah.json';
 import connorUserData from '../assets/connor_data.json';
 
@@ -72,7 +75,8 @@ const DATA = connorSongData.items.map((track) => {
 		albumImage: track.track.album.images[0].url,
 		trackName: track.track.name,
 		artistName: track.track.artists[0].name,
-		previewURL: track.track.preview_url,
+		previewURL: '',
+		//		previewURL: track.track.preview_url,
 		isPlaying: false,
 	};
 });
@@ -125,10 +129,13 @@ const ProfileScreen = () => {
 	// on first render, setup audio player as a state component
 	useEffect(() => {
 		if (playbackObject === null) {
-			setPlaybackObject(new Ajdio.Sound());
+			setPlaybackObject(new Audio.Sound());
 		}
 	}, []);
 
+	// TODO
+	// Fix: bug when you click a song, then another, then go back to the fist song
+	// it doesn't play
 	const playSound = async (item) => {
 		// first, check status of audio player
 		let status = await playbackObject.getStatusAsync();
@@ -182,7 +189,33 @@ const ProfileScreen = () => {
 						<View style={{ marginTop: 5, marginBottom: 5, flexDirection: 'row', width: '100%' }}>
 							<TouchableHighlight
 								onPress={() => {
-									playSound(item);
+									// TODO
+									// Fix: If item is already playing, dont query, just
+									// send item to playSound() to be paused
+									//								if (item.isPlaying) {
+									//									playSound(item);
+									//								} else {
+									axios({
+										method: 'get',
+										url: SpotifyAPI_URL + item.id,
+										headers: {
+											Authorization:
+												'Bearer ' +
+												'BQB5Acc9ho8Kwq7zIbKuejVx8BvYfzKqA0RJ6fhRJtPIjZTz4DC1MLYE9Jn-SpRTj0Q7i48EjiFHFz4498gDnLKjO5_Y5NgdEFa4AIpC96BM-whqi1NzqvT3AaJjmrHc7UugFD0dMBWm9uZtOWZDOV0e2rhl2gjRlr9oWA',
+										},
+									})
+										.then((response) => {
+											if (response.data.preview_url !== null) {
+												item.previewURL = response.data.preview_url;
+												playSound(item);
+											} else {
+												console.log('No Preview URL available');
+											}
+										})
+										.catch((error) => {
+											console.log(error);
+										});
+									//									}
 								}}
 								underlayColor="white"
 								activeOpacity={0.2}

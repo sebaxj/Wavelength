@@ -10,6 +10,7 @@ export const createUser = (payload) => api.post(`/user`, payload);
 export const getAllUsers = () => api.get(`/users`);
 export const getUserById = (id) => api.get(`/user/${id}`);
 
+
 const apis = {
 	createUser,
 	getAllUsers,
