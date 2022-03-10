@@ -37,15 +37,15 @@ const FriendsScreen = () => {
 				data={DATA}
 				ListHeaderComponent={
 					<>
-						<View style={{ marginTop: 10, marginBottom: 20, justifyContent: 'center' }}>
+						<View style={{ marginTop: 20, marginBottom: 20, justifyContent: 'center' }}>
 							<Text style={{ fontFamily: 'Montserrat_500Medium', fontSize: 18, alignSelf: 'center' }}>
-								New Friend Drop 3/7/22 at 9PM PST
+								New Friend Drop 3/18/22 at 9PM PST
 							</Text>
 						</View>
 					</>
 				}
 				renderItem={({ item, index, separators }) => (
-                    <ListItem bottomDivider>
+                    <ListItem bottomDivider key={item.id}>
                         <Avatar source={{uri: item.avatar}} size={50} rounded/>
                         <ListItem.Content >
                         <ListItem.Title style={{fontFamily: 'Montserrat_400Regular'}}>{item.user_name}</ListItem.Title>

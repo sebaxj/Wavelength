@@ -11,10 +11,11 @@ import {
 	// TouchableHighlight,
 } from 'react-native';
 
-import connorSongData from '../assets/blah.json';
+import corbinSongData from '../assets/corbin_song_data.json';
 import { FontAwesome } from '@expo/vector-icons';
 
-const DATA = connorSongData.items.map((track) => {
+// the first song is the currently playing i guess
+let DATA = corbinSongData.items.map((track) => {
 	return {
 		id: track.track.id,
 		albumImage: track.track.album.images[0].url,
@@ -26,6 +27,9 @@ const DATA = connorSongData.items.map((track) => {
 	};
 });
 
+const firstSong = DATA[0]
+DATA = DATA.slice(1)
+
 const ActivityScreen = () => {
     return (
         <View style={styles.container}>
@@ -36,28 +40,35 @@ const ActivityScreen = () => {
 					<>
 						<View style={{ marginTop: 10, marginBottom: 20, justifyContent: 'center' }}>
 							<Text style={{ fontFamily: 'Montserrat_500Medium', fontSize: 18, alignSelf: 'center' }}>
-								Now playing:
+								Now playing
 							</Text>
 						</View>
+						<ListItem >
+							<Avatar source={{uri: firstSong.albumImage}} size={50} />
+							<ListItem.Content >
+							<ListItem.Title style={{fontFamily: 'Montserrat_400Regular'}}>{firstSong.trackName}</ListItem.Title>
+							<ListItem.Subtitle style={{fontFamily: 'Montserrat_400Regular'}}>{`${firstSong.artistName}`}</ListItem.Subtitle>
+							</ListItem.Content>
+						</ListItem>
 						<View style={{ marginTop: 10, marginBottom: 20, justifyContent: 'center' }}>
 							{/* <Text style={{ fontFamily: 'Montserrat_500Medium', fontSize: 18 }}>
 								Live Listening Session
-							</Text> */}
+							</Text> */} 
 							<FontAwesome name='headphones' size={60} style={{ alignSelf: 'center' }} />
 						</View>
                         <View style={{ marginTop: 10, marginBottom: 20, flexDirection: 'row' }}>
                             <View style={{ justifyContent: 'center' }}>
 							<Image style={styles.picture} source={{ uri: 'https://i.scdn.co/image/ab6775700000ee85c481e249f22585f0c118942b' }} />
-                            <Text style={{ alignSelf: 'center' }}>Connor</Text>
+                            <Text style={{ alignSelf: 'center', fontFamily: 'Montserrat_400Regular' }}>Connor</Text>
                             </View>
                             <View style={{justifyContent: 'center', marginLeft: 'auto' }}>
                             <Image style={styles.picture} source={{ uri: 'https://i.scdn.co/image/ab6775700000ee859b4a88ce129b7d455dbb3d1d' }} />
-                            <Text style={{ alignSelf: 'center' }}>Corbin Schmeil</Text>
+                            <Text style={{ alignSelf: 'center', fontFamily: 'Montserrat_400Regular' }}>Corbin Schmeil</Text>
                             </View>
                         </View>
                         <View style={{ marginTop: 10, marginBottom: 20, justifyContent: 'center' }}>
 							<Text style={{ fontFamily: 'Montserrat_500Medium', fontSize: 18, alignSelf: 'center' }}>
-								Song Queue
+								Next Up (from Spotify)
 							</Text>
 						</View>
 					</>
@@ -92,7 +103,8 @@ const styles = StyleSheet.create({
 		width: 100,
 		borderRadius: 100 / 2,
 		marginRight: 20,
-		marginLeft: 20
+		marginLeft: 20,
+		marginBottom: 5
 	},
 });
 

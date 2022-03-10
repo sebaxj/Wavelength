@@ -1,0 +1,20 @@
+{
+    "_id": {
+        "$oid": "622975e8ebb8392bddbb04b8"
+    },
+    "spotify_id": "stevenk523",
+    "user_name": "stevenk523",
+    "location": "Durham, North Carolina",
+    "avatar": "https://i.scdn.co/image/ab6775700000ee85baa2c99442e6028fa3d591dd",
+    "friends": [],
+    "liked_songs": [],
+    "spotify_connected": true,
+    "spotify_access_token": "BQBVuj98ULzZEkXtLsZQ_5CRE-Sk7xFASG6UwNDDkmjgvQYtNMS5RCW_59reNHZStWeJAT3icuR6Xq621XgOpvme7T859g2KGvzY7l7Qt1ckswbhd9FpY6EPMLsegARDI6-3oM4NRlDx7LYWNuWaF2I6pwbqSrl5Eg",
+    "createdAt": {
+        "$date": "2022-03-10T03:52:08.156Z"
+    },
+    "updatedAt": {
+        "$date": "2022-03-10T03:52:08.156Z"
+    },
+    "__v": 0
+}

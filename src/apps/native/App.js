@@ -96,7 +96,7 @@ export default function App() {
 		Montserrat_900Black_Italic,
 	});
 
-	const [isLoggedIn, setLoginStatus] = useState(true);
+	const [isLoggedIn, setLoginStatus] = useState(false);
 
 	async function onLogin () {
 		console.log("IN HERE CONNOR ALMOST THERE")
@@ -107,7 +107,7 @@ export default function App() {
 		// }
 	}
 	// useEffect(async () => {
-	// 	// await logout()
+	// 	await logout()
 	// 	let l = await loginStatus();
 	// 	setLoginStatus(l);
 	// });
@@ -188,10 +188,21 @@ export default function App() {
 					{isLoggedIn ? (
 						<Tab.Group>
 							<Tab.Screen
+								name="Profile"
+								component={ProfileScreen}
+								options={{
+									headerTitle: 'Profile',
+									tabBarLabel: 'Profile',
+									tabBarIcon: (tabInfo) => (
+										<Ionicons name="settings" size={30} color={tabInfo.tintColor} />
+									),
+								}}
+							/>
+							<Tab.Screen
 								name="Activity"
 								component={ActivityScreen}
 								options={{
-									headerTitle: 'Activity Feed',
+									headerTitle: 'Live Listening',
 									tabBarLabel: 'Activity',
 									tabBarIcon: (tabInfo) => (
 										<Feather name="activity" size={32} color={tabInfo.tintColor} />
@@ -209,17 +220,7 @@ export default function App() {
 									),
 								}}
 							/>
-							<Tab.Screen
-								name="Profile"
-								component={ProfileScreen}
-								options={{
-									headerTitle: 'Profile',
-									tabBarLabel: 'Profile',
-									tabBarIcon: (tabInfo) => (
-										<Ionicons name="settings" size={30} color={tabInfo.tintColor} />
-									),
-								}}
-							/>
+							
 						</Tab.Group>
 					) : (
 						<Tab.Group>

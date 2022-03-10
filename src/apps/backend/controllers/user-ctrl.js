@@ -48,7 +48,7 @@ populateUserFromSpotify = async (req, res) => {
     
     let responses = await Promise.all([p1, p2])
     const [profileData, songData] = responses
-    console.log("PROF DATA", profileData.display_name)
+    console.log("PROF DATA", profileData)
         
 
     // songData.items.map( track => {
