@@ -29,7 +29,10 @@ const Description: React.FC = () => {
                     </Row>
                     <Row style={{ marginTop: '1rem' }}>
                         <Col>
-                            <Button href="https://www.figma.com/proto/fQ0uhEhxdLUi9DO2IV84yQ/Med-Fi-Mobile?node-id=23%3A139&scaling=scale-down&page-id=0%3A1&starting-point-node-id=23%3A139">
+                            <Button
+                                href="https://www.figma.com/proto/fQ0uhEhxdLUi9DO2IV84yQ/Med-Fi-Mobile?node-id=23%3A139&scaling=scale-down&page-id=0%3A1&starting-point-node-id=23%3A139"
+                                target="_blank"
+                            >
                                 Try Our Med-Fi Prototype
                             </Button>
                         </Col>

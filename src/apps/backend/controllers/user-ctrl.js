@@ -39,17 +39,16 @@ createUser = async (req, res) => {
 };
 
 populateUserFromSpotify = async (req, res) => {
-    const access_token = req.body.access_token
+    const access_token = req.body.access_token;
 
-    let p1 = getMyProfileData(access_token)
-    let p2 = getMySongData(access_token)
+    let p1 = getMyProfileData(access_token);
+    let p2 = getMySongData(access_token);
 
     // console.log("connor this was a dogman success", p1)
-    
-    let responses = await Promise.all([p1, p2])
-    const [profileData, songData] = responses
-    console.log("PROF DATA", profileData)
-        
+
+    let responses = await Promise.all([p1, p2]);
+    const [profileData, songData] = responses;
+    console.log('PROF DATA', profileData);
 
     // songData.items.map( track => {
 
@@ -57,22 +56,22 @@ populateUserFromSpotify = async (req, res) => {
 
     // })
 
-    
-    const newUser = new User ({
+    const newUser = new User({
         spotify_id: profileData.id,
         user_name: profileData.display_name,
-        location: "Click to change location",
+        location: 'Click to change location',
         avatar: profileData.images[0].url,
         friends: [],
         liked_songs: [],
 
         spotify_connected: true,
         spotify_access_token: access_token,
-    })
+    });
 
-    newUser.save()
-    .then(res.send({ status: 'SUCCESS', user: newUser._id }))
-    .catch(err => console.log(err))    
+    newUser
+        .save()
+        .then(res.send({ status: 'SUCCESS', user: newUser._id }))
+        .catch((err) => console.log(err));
 };
 
 // get a new access token given a refresh token
@@ -105,6 +104,6 @@ module.exports = {
     getUserById,
     getAllUsers,
     createUser,
-    populateUserFromSpotify
+    populateUserFromSpotify,
     // refreshSpotifyToken
 };
