@@ -34,29 +34,29 @@ const ActivityScreen = () => {
 				data={DATA}
 				ListHeaderComponent={
 					<>
-						<View style={{ marginTop: 10, marginBottom: 20, textAlign: 'center' }}>
-							<Text style={{ fontFamily: 'Montserrat_500Medium', fontSize: 18 }}>
+						<View style={{ marginTop: 10, marginBottom: 20, justifyContent: 'center' }}>
+							<Text style={{ fontFamily: 'Montserrat_500Medium', fontSize: 18, alignSelf: 'center' }}>
 								Now playing:
 							</Text>
 						</View>
-						<View style={{ marginTop: 10, marginBottom: 20, textAlign: 'center' }}>
+						<View style={{ marginTop: 10, marginBottom: 20, justifyContent: 'center' }}>
 							{/* <Text style={{ fontFamily: 'Montserrat_500Medium', fontSize: 18 }}>
 								Live Listening Session
 							</Text> */}
-							<FontAwesome name='headphones' size={60}/>
+							<FontAwesome name='headphones' size={60} style={{ alignSelf: 'center' }} />
 						</View>
                         <View style={{ marginTop: 10, marginBottom: 20, flexDirection: 'row' }}>
-                            <View style={{textAlign: 'center' }}>
+                            <View style={{ justifyContent: 'center' }}>
 							<Image style={styles.picture} source={{ uri: 'https://i.scdn.co/image/ab6775700000ee85c481e249f22585f0c118942b' }} />
-                            <Text>Connor</Text>
+                            <Text style={{ alignSelf: 'center' }}>Connor</Text>
                             </View>
-                            <View style={{textAlign: 'center', marginLeft: 'auto' }}>
+                            <View style={{justifyContent: 'center', marginLeft: 'auto' }}>
                             <Image style={styles.picture} source={{ uri: 'https://i.scdn.co/image/ab6775700000ee859b4a88ce129b7d455dbb3d1d' }} />
-                            <Text>Corbin Schmeil</Text>
+                            <Text style={{ alignSelf: 'center' }}>Corbin Schmeil</Text>
                             </View>
                         </View>
-                        <View style={{ marginTop: 10, marginBottom: 20, textAlign: 'center' }}>
-							<Text style={{ fontFamily: 'Montserrat_500Medium', fontSize: 18 }}>
+                        <View style={{ marginTop: 10, marginBottom: 20, justifyContent: 'center' }}>
+							<Text style={{ fontFamily: 'Montserrat_500Medium', fontSize: 18, alignSelf: 'center' }}>
 								Song Queue
 							</Text>
 						</View>

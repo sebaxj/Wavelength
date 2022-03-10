@@ -37,8 +37,8 @@ const FriendsScreen = () => {
 				data={DATA}
 				ListHeaderComponent={
 					<>
-						<View style={{ marginTop: 10, marginBottom: 20, textAlign: 'center' }}>
-							<Text style={{ fontFamily: 'Montserrat_500Medium', fontSize: 18 }}>
+						<View style={{ marginTop: 10, marginBottom: 20, justifyContent: 'center' }}>
+							<Text style={{ fontFamily: 'Montserrat_500Medium', fontSize: 18, alignSelf: 'center' }}>
 								New Friend Drop 3/7/22 at 9PM PST
 							</Text>
 						</View>
