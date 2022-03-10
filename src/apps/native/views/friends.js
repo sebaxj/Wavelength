@@ -11,7 +11,9 @@ import {
 } from 'react-native';
 
 import connorFriendData from '../assets/friend_data.json';
-import { SafeAreaView } from 'react-native-safe-area-context';
+
+import { ListItem, Avatar } from 'react-native-elements'
+import { FontAwesome } from '@expo/vector-icons';
 
 const DATA = connorFriendData.map((friend) => {
 	// console.log(friend.currently_listening.track)
@@ -31,6 +33,7 @@ const FriendsScreen = () => {
 	return (
 		<View style={styles.container}>
 			<FlatList
+                style={{width: '100%'}}
 				data={DATA}
 				ListHeaderComponent={
 					<>
@@ -42,34 +45,15 @@ const FriendsScreen = () => {
 					</>
 				}
 				renderItem={({ item, index, separators }) => (
-					<>
-						<View style={{ marginTop: 5, marginBottom: 5, flexDirection: 'row', width: '100%' }}>
-							<Image style={styles.friend_list_avatar} source={{ uri: item.avatar }} key={item.id} />
-							<View style={{ alignItems: 'flex-start', width: '80%' }}>
-								<Text numberOfLines={1} style={{ fontFamily: 'Montserrat_400Regular', fontSize: 16 }}>
-									{item.user_name}
-								</Text>
-								{/* <Text numberOfLines={1} style={{ fontFamily: 'Montserrat_300Light', fontSize: 14 }}>
-                            {item.artistName}
-                        </Text> */}
-							</View>
-						</View>
-						<View style={{ marginTop: 5, marginBottom: 5, flexDirection: 'row', width: '100%' }}>
-							<Image
-								style={styles.album_picture}
-								source={{ uri: item.currently_listening.albumImage }}
-								key={item.id}
-							/>
-							<View style={{ alignItems: 'flex-start', width: '80%' }}>
-								<Text numberOfLines={1} style={{ fontFamily: 'Montserrat_400Regular', fontSize: 16 }}>
-									{item.currently_listening.trackName}
-								</Text>
-								<Text numberOfLines={1} style={{ fontFamily: 'Montserrat_400Regular' }}>
-									{item.currently_listening.artistName}
-								</Text>
-							</View>
-						</View>
-					</>
+                    <ListItem bottomDivider>
+                        <Avatar source={{uri: item.avatar}} size={50} rounded/>
+                        <ListItem.Content >
+                        <ListItem.Title style={{fontFamily: 'Montserrat_400Regular'}}>{item.user_name}</ListItem.Title>
+                        <ListItem.Subtitle style={{fontFamily: 'Montserrat_400Regular'}}>{`${item.currently_listening.trackName} • ${item.currently_listening.artistName}`}</ListItem.Subtitle>
+                        </ListItem.Content>
+                        {/* <ListItem.Chevron /> */}
+						<FontAwesome name='headphones' size={20} />
+                    </ListItem>
 				)}
 			/>
 		</View>
@@ -79,7 +63,7 @@ const FriendsScreen = () => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: '#fff',
+		backgroundColor: '#fff', 
 		alignItems: 'center', // aligns items in the x direction
 		justifyContent: 'flex-start', // aligns items in the y direction
 	},

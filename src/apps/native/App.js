@@ -8,6 +8,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useState, useEffect } from 'react';
 import * as SecureStore from 'expo-secure-store';
 
@@ -49,6 +50,7 @@ import FriendsScreen from './views/friends';
 import ProfileScreen from './views/profile';
 import SignupScreen from './views/signup';
 import LoginScreen from './views/login';
+import LiveListeningScreen from './views/live_listening';
 import apis from './api';
 
 // create navigator object
@@ -119,6 +121,7 @@ export default function App() {
 				Login: 'login',
 				Profile: 'profile',
 				Signup: 'signup',
+				'Live Listening': 'live_listening',
 			},
 		},
 	};
@@ -146,6 +149,21 @@ export default function App() {
 	}, []);
 
 	console.log(data ? JSON.stringify(data) : 'APP NOT OPENED FROM DEEP LINK');
+
+
+	// NESTED NAVIGATION STACK CODE HERE
+	// each tab gives a stack
+	// const FriendsStack = createNativeStackNavigator();
+
+	// function FriendsStackScreen() {
+	// 	return (
+	// 		<FriendsStack.Navigator>
+	// 			<FriendsStack.Screen name="Friends" component={FriendsScreen} />
+	// 			<FriendsStack.Screen name="Live Listening" component={LiveListeningScreen} />
+	// 		</FriendsStack.Navigator>
+	// 	);
+	// }
+
 
 	if (!fontsLoaded) {
 		return <AppLoading />;

@@ -1,21 +1,23 @@
 [
     {
         "_id": {
-            "$oid": "62228ebd832b1db3658fdb75"
+            "$oid": "62296d3892cffb49ca45ea92"
         },
-        "user_name": "Connor",
-        "location": "Calabasas, CA",
-        "avatar": "https://i.scdn.co/image/ab6775700000ee85c481e249f22585f0c118942b",
+        "spotify_id": "zhl1g4jvubmhiewzpg4o3l9dy",
+        "user_name": "Sebastian James",
+        "location": "Stowe, Vermont",
+        "avatar": "https://i.scdn.co/image/ab6775700000ee85ef9953cb38b0c5042c416055",
         "friends": [],
         "liked_songs": [],
         "spotify_connected": true,
-        "spotify_access_token": "BQDw3wPHOSn-JxEcUCORaSmQoc4s2tvGCcCljgZOHzPiZ93llDFzZjn7B6OT7CV3JB-V4a5QZfKdS-Gu6TAFptmSkKlHEma1ngP803IMIxXwQfdj-2QIH_PwtegO8ZcL-_Lz_AU-aAnQ7sfnwMf5CkOXNFZiEoiKUxdY5zUw6UVY0z2I9e-DGJGqR8ZwI-9mZ4_SxyLu4A_DzywgAlk",
+        "spotify_access_token": "BQBqf3PZFF9InC7Gd7CCMO8tO9ZibdBX5mgKHKbUreRUtwG2cqNl5zvLT7sxPjSVnXhSiSmffeN5Pe5XLgGWZKqzk5XJJCDy8JennYhOQeE8JvNmQCdDV8AEfcdhCi5eRBWbtxYzZ888hhjn2EZ0L_sYpBAGRfbJKOqkeQ",
         "createdAt": {
-            "$date": "2022-03-04T22:12:13.741Z"
+            "$date": "2022-03-10T03:15:04.251Z"
         },
         "updatedAt": {
-            "$date": "2022-03-04T22:12:13.741Z"
+            "$date": "2022-03-10T03:15:04.251Z"
         },
+        "__v": 0,
         "currently_listening": {
             "added_at": "2021-08-26T16:00:41Z",
             "track": {

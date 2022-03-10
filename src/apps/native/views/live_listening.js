@@ -26,7 +26,7 @@ const DATA = connorSongData.items.map((track) => {
 	};
 });
 
-const ActivityScreen = () => {
+const LiveListeningScreen = () => {
     return (
         <View style={styles.container}>
 			<FlatList
@@ -36,23 +36,17 @@ const ActivityScreen = () => {
 					<>
 						<View style={{ marginTop: 10, marginBottom: 20, textAlign: 'center' }}>
 							<Text style={{ fontFamily: 'Montserrat_500Medium', fontSize: 18 }}>
-								Now playing:
-							</Text>
-						</View>
-						<View style={{ marginTop: 10, marginBottom: 20, textAlign: 'center' }}>
-							{/* <Text style={{ fontFamily: 'Montserrat_500Medium', fontSize: 18 }}>
 								Live Listening Session
-							</Text> */}
-							<FontAwesome name='headphones' size={60}/>
+							</Text>
 						</View>
                         <View style={{ marginTop: 10, marginBottom: 20, flexDirection: 'row' }}>
                             <View style={{textAlign: 'center' }}>
-							<Image style={styles.picture} source={{ uri: 'https://i.scdn.co/image/ab6775700000ee85c481e249f22585f0c118942b' }} />
+							<Image style={styles.picture} source={{ uri: 'https://cdn.rockhopper.app/images/6910539456031171-connor-avatar.png' }} />
                             <Text>Connor</Text>
                             </View>
                             <View style={{textAlign: 'center', marginLeft: 'auto' }}>
-                            <Image style={styles.picture} source={{ uri: 'https://i.scdn.co/image/ab6775700000ee859b4a88ce129b7d455dbb3d1d' }} />
-                            <Text>Corbin Schmeil</Text>
+                            <Image style={styles.picture} source={{ uri: 'https://cdn.rockhopper.app/images/6910539456031171-connor-avatar.png' }} />
+                            <Text>Connor</Text>
                             </View>
                         </View>
                         <View style={{ marginTop: 10, marginBottom: 20, textAlign: 'center' }}>
@@ -87,13 +81,11 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
     },
     picture: {
-		resizeMode: 'cover',
+		resizeMode: 'contain',
 		height: 100,
 		width: 100,
 		borderRadius: 100 / 2,
-		marginRight: 20,
-		marginLeft: 20
 	},
 });
 
-export default ActivityScreen;
+export default LiveListeningScreen;
