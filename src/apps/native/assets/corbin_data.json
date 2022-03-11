@@ -1,0 +1,21 @@
+{
+    "display_name": "Corbin Schmeil",
+    "external_urls": {
+        "spotify": "https://open.spotify.com/user/j5f991la2jzpjdw2ycrapelv9"
+    },
+    "followers": {
+        "href": null,
+        "total": 8
+    },
+    "href": "https://api.spotify.com/v1/users/j5f991la2jzpjdw2ycrapelv9",
+    "id": "j5f991la2jzpjdw2ycrapelv9",
+    "images": [
+        {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab6775700000ee859b4a88ce129b7d455dbb3d1d",
+            "width": null
+        }
+    ],
+    "type": "user",
+    "uri": "spotify:user:j5f991la2jzpjdw2ycrapelv9"
+}

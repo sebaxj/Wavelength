@@ -1,6 +1,8 @@
 {
   "expo": {
     "scheme": "myapp",
+    "owner": "connorhogan",
+    "privacy": "public",
     "name": "Wavelength",
     "slug": "Wavelength",
     "version": "1.0.0",

@@ -1,0 +1,21 @@
+{
+    "display_name": "Sebastian James",
+    "external_urls": {
+        "spotify": "https://open.spotify.com/user/zhl1g4jvubmhiewzpg4o3l9dy"
+    },
+    "followers": {
+        "href": null,
+        "total": 5
+    },
+    "href": "https://api.spotify.com/v1/users/zhl1g4jvubmhiewzpg4o3l9dy",
+    "id": "zhl1g4jvubmhiewzpg4o3l9dy",
+    "images": [
+        {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab6775700000ee85ef9953cb38b0c5042c416055",
+            "width": null
+        }
+    ],
+    "type": "user",
+    "uri": "spotify:user:zhl1g4jvubmhiewzpg4o3l9dy"
+}
