@@ -11,16 +11,11 @@ import {
     // TouchableHighlight,
 } from 'react-native';
 
-import corbinSongData from '../assets/corbin_song_data.json';
+import partnerSongData from '../assets/seb_song_data.json';
 import { FontAwesome } from '@expo/vector-icons';
 
-// IMPORT LIVE LISTENING SCREENS
-import LiveListeningCorbinScreen from './live_listening_corbin';
-import LiveListeningStevenScreen from './live_listening_steven';
-import LiveListeningSebScreen from './live_listening_seb';
-
 // the first song is the currently playing i guess
-let DATA = corbinSongData.items.map((track) => {
+let DATA = partnerSongData.items.map((track) => {
     return {
         id: track.track.id,
         albumImage: track.track.album.images[0].url,
@@ -35,7 +30,7 @@ let DATA = corbinSongData.items.map((track) => {
 const firstSong = DATA[0];
 DATA = DATA.slice(1);
 
-const ActivityScreen = () => {
+const LiveListeningSebScreen = () => {
     return (
         <View style={styles.container}>
             <FlatList
@@ -76,10 +71,10 @@ const ActivityScreen = () => {
                             <View style={{ justifyContent: 'center', marginLeft: 'auto' }}>
                                 <Image
                                     style={styles.picture}
-                                    source={{ uri: 'https://i.scdn.co/image/ab6775700000ee859b4a88ce129b7d455dbb3d1d' }}
+                                    source={{ uri: 'https://i.scdn.co/image/ab6775700000ee85ef9953cb38b0c5042c416055' }}
                                 />
                                 <Text style={{ alignSelf: 'center', fontFamily: 'Montserrat_400Regular' }}>
-                                    Corbin Schmeil
+                                    Sebastian James
                                 </Text>
                             </View>
                         </View>
@@ -128,4 +123,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default ActivityScreen;
+export default LiveListeningSebScreen;
