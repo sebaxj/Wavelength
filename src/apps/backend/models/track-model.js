@@ -10,18 +10,18 @@ const Track = new Schema(
                 artists: [
                     {
                         external_urls: {
-                            spotify: { type: String }
+                            spotify: { type: String },
                         },
                         href: { type: String },
                         id: { type: String },
                         name: { type: String },
                         type: { type: String },
-                        uri: { type: String }
-                    }
+                        uri: { type: String },
+                    },
                 ],
-                available_markets: [ { type: String } ],
+                available_markets: [{ type: String }],
                 external_urls: {
-                    spotify: { type: String }
+                    spotify: { type: String },
                 },
                 href: { type: String },
                 id: { type: String },
@@ -30,36 +30,36 @@ const Track = new Schema(
                         height: { type: Number },
                         url: { type: String },
                         width: { type: Number },
-                    }
+                    },
                 ],
                 name: { type: String },
                 release_date: { type: String },
                 release_date_precision: { type: String },
                 total_tracks: { type: Number },
                 type: { type: String },
-                uri: { type: String }
+                uri: { type: String },
             },
             artists: [
                 {
                     external_urls: {
-                        spotify: { type: String }
+                        spotify: { type: String },
                     },
                     href: { type: String },
                     id: { type: String },
                     name: { type: String },
                     type: { type: String },
-                    uri: { type: String }
-                }
+                    uri: { type: String },
+                },
             ],
-            available_markets: [ { type: String } ],
+            available_markets: [{ type: String }],
             disc_number: { type: Number },
             duration_ms: { type: Number },
             explicit: { type: Boolean },
             external_ids: {
-                isrc: { type: String }
+                isrc: { type: String },
             },
             external_urls: {
-                spotify: { type: String }
+                spotify: { type: String },
             },
             href: { type: String },
             id: { type: String },
@@ -69,8 +69,8 @@ const Track = new Schema(
             preview_url: { type: String },
             track_number: { type: Number },
             type: { type: String },
-            uri: { type: String }
-        }
+            uri: { type: String },
+        },
     },
     { timestamps: true },
 );

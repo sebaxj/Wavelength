@@ -214,6 +214,75 @@ const Deliverables: React.FC = () => {
                         </td>
                         <td></td>
                     </tr>
+                    <tr>
+                        <td>Hi-Fi Prototype</td>
+                        <td>
+                            <a
+                                href="https://web.stanford.edu/class/cs147/projects/BecomingIron-Man/Wavelength/static/hifi.pdf"
+                                target="_blank"
+                            >
+                                PDF
+                            </a>
+                        </td>
+                        <td>
+                            <a
+                                href="https://web.stanford.edu/class/cs147/projects/BecomingIron-Man/Wavelength/static/hifi.pptx"
+                                target="_blank"
+                            >
+                                PPT
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Hi-Fi Report</td>
+                        <td>
+                            <a
+                                href="https://web.stanford.edu/class/cs147/projects/BecomingIron-Man/Wavelength/static/hifi-report.pdf"
+                                target="_blank"
+                            >
+                                A8 Hi-Fi Report
+                            </a>
+                        </td>
+                        <td>
+                            <a
+                                href="https://web.stanford.edu/class/cs147/projects/BecomingIron-Man/Wavelength/static/hifi.mov"
+                                target="_blank"
+                            >
+                                Video of Hi-Fi Task 1
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Wavelength Pitch Poster</td>
+                        <td>
+                            <a
+                                href="https://web.stanford.edu/class/cs147/projects/BecomingIron-Man/Wavelength/static/Wavelength-poster-final.png"
+                                target="_blank"
+                            >
+                                PNG
+                            </a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Wavelength Pitch Slide</td>
+                        <td>
+                            <a
+                                href="https://web.stanford.edu/class/cs147/projects/BecomingIron-Man/Wavelength/static/Wavelength-pitch-slide.pdf"
+                                target="_blank"
+                            >
+                                PDF
+                            </a>
+                        </td>
+                        <td>
+                            <a
+                                href="https://web.stanford.edu/class/cs147/projects/BecomingIron-Man/Wavelength/static/Wavelength-pitch-slide.pptx"
+                                target="_blank"
+                            >
+                                PPT
+                            </a>
+                        </td>
+                    </tr>
                 </tbody>
             </Table>
         </div>

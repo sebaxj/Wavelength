@@ -9,42 +9,42 @@ const encoded_header = Buffer.from(constants.SPOTIFY_CLIENT_ID + ':' + constants
 
 getMyProfileData = async (access_token) => {
     const config = {
-      method: 'get',
-      url: 'https://api.spotify.com/v1/me',
-      headers: { 
-        'Authorization': `Bearer ${access_token}`
-      }
+        method: 'get',
+        url: 'https://api.spotify.com/v1/me',
+        headers: {
+            Authorization: `Bearer ${access_token}`,
+        },
     };
-    
+
     return axios(config)
-    .then( (response) => {
-        return response.data
-    })
-    .catch( (error) => {
-        console.log(error);
-    });
-}
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+};
 
 getMySongData = async (access_token) => {
     const config = {
-      method: 'get',
-      url: 'https://api.spotify.com/v1/me/tracks',
-      headers: { 
-        'Authorization': `Bearer ${access_token}`
-      },
-      params: {
-        'limit': '50'
-      },
+        method: 'get',
+        url: 'https://api.spotify.com/v1/me/tracks',
+        headers: {
+            Authorization: `Bearer ${access_token}`,
+        },
+        params: {
+            limit: '50',
+        },
     };
-    
+
     return axios(config)
-    .then( (response) => {
-        return response.data
-    })
-    .catch( (error) => {
-        console.log(error);
-    });
-}
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+};
 
 module.exports = {
     getMyProfileData,

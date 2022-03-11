@@ -17,25 +17,25 @@ import * as Linking from 'expo-linking';
 // fonts
 import AppLoading from 'expo-app-loading';
 import {
-	useFonts,
-	Montserrat_100Thin,
-	Montserrat_200ExtraLight,
-	Montserrat_300Light,
-	Montserrat_400Regular,
-	Montserrat_500Medium,
-	Montserrat_600SemiBold,
-	Montserrat_700Bold,
-	Montserrat_800ExtraBold,
-	Montserrat_900Black,
-	Montserrat_100Thin_Italic,
-	Montserrat_200ExtraLight_Italic,
-	Montserrat_300Light_Italic,
-	Montserrat_400Regular_Italic,
-	Montserrat_500Medium_Italic,
-	Montserrat_600SemiBold_Italic,
-	Montserrat_700Bold_Italic,
-	Montserrat_800ExtraBold_Italic,
-	Montserrat_900Black_Italic,
+    useFonts,
+    Montserrat_100Thin,
+    Montserrat_200ExtraLight,
+    Montserrat_300Light,
+    Montserrat_400Regular,
+    Montserrat_500Medium,
+    Montserrat_600SemiBold,
+    Montserrat_700Bold,
+    Montserrat_800ExtraBold,
+    Montserrat_900Black,
+    Montserrat_100Thin_Italic,
+    Montserrat_200ExtraLight_Italic,
+    Montserrat_300Light_Italic,
+    Montserrat_400Regular_Italic,
+    Montserrat_500Medium_Italic,
+    Montserrat_600SemiBold_Italic,
+    Montserrat_700Bold_Italic,
+    Montserrat_800ExtraBold_Italic,
+    Montserrat_900Black_Italic,
 } from '@expo-google-fonts/montserrat';
 
 // icons
@@ -63,202 +63,199 @@ const prefix = Linking.makeUrl('/');
 // if yes : display the Activity | Friends | Profile screens
 // if no : display the Login | Sign Up screens
 async function loginStatus() {
-	const token = await SecureStore.getItemAsync('spotify_access_token');
-	console.log('FOUND TOKEN', token);
-	return token !== null;
+    const token = await SecureStore.getItemAsync('spotify_access_token');
+    console.log('FOUND TOKEN', token);
+    return token !== null;
 }
 
 async function logout() {
-	const token = await SecureStore.deleteItemAsync('spotify_access_token');
+    const token = await SecureStore.deleteItemAsync('spotify_access_token');
 }
 
 //   console.log("TOKEN", token)
 
 export default function App() {
-	let [fontsLoaded] = useFonts({
-		Montserrat_100Thin,
-		Montserrat_200ExtraLight,
-		Montserrat_300Light,
-		Montserrat_400Regular,
-		Montserrat_500Medium,
-		Montserrat_600SemiBold,
-		Montserrat_700Bold,
-		Montserrat_800ExtraBold,
-		Montserrat_900Black,
-		Montserrat_100Thin_Italic,
-		Montserrat_200ExtraLight_Italic,
-		Montserrat_300Light_Italic,
-		Montserrat_400Regular_Italic,
-		Montserrat_500Medium_Italic,
-		Montserrat_600SemiBold_Italic,
-		Montserrat_700Bold_Italic,
-		Montserrat_800ExtraBold_Italic,
-		Montserrat_900Black_Italic,
-	});
+    let [fontsLoaded] = useFonts({
+        Montserrat_100Thin,
+        Montserrat_200ExtraLight,
+        Montserrat_300Light,
+        Montserrat_400Regular,
+        Montserrat_500Medium,
+        Montserrat_600SemiBold,
+        Montserrat_700Bold,
+        Montserrat_800ExtraBold,
+        Montserrat_900Black,
+        Montserrat_100Thin_Italic,
+        Montserrat_200ExtraLight_Italic,
+        Montserrat_300Light_Italic,
+        Montserrat_400Regular_Italic,
+        Montserrat_500Medium_Italic,
+        Montserrat_600SemiBold_Italic,
+        Montserrat_700Bold_Italic,
+        Montserrat_800ExtraBold_Italic,
+        Montserrat_900Black_Italic,
+    });
 
-	const [isLoggedIn, setLoginStatus] = useState(false);
+    const [isLoggedIn, setLoginStatus] = useState(false);
 
-	async function onLogin () {
-		console.log("IN HERE CONNOR ALMOST THERE")
-		let l = await loginStatus();
-		setLoginStatus(l);
-		// if (l) {
-		// 	apis.updateUserData()
-		// }
-	}
-	// useEffect(async () => {
-	// 	await logout()
-	// 	let l = await loginStatus();
-	// 	setLoginStatus(l);
-	// });
+    async function onLogin() {
+        console.log('IN HERE CONNOR ALMOST THERE');
+        let l = await loginStatus();
+        setLoginStatus(l);
+        // if (l) {
+        // 	apis.updateUserData()
+        // }
+    }
+    // useEffect(async () => {
+    // 	await logout()
+    // 	let l = await loginStatus();
+    // 	setLoginStatus(l);
+    // });
 
-	const linking = {
-		prefixes: [prefix],
-		config: {
-			screens: {
-				Activity: 'activity',
-				Friends: 'friends',
-				Login: 'login',
-				Profile: 'profile',
-				Signup: 'signup',
-				'Live Listening': 'live_listening',
-			},
-		},
-	};
+    const linking = {
+        prefixes: [prefix],
+        config: {
+            screens: {
+                Activity: 'activity',
+                Friends: 'friends',
+                Login: 'login',
+                Profile: 'profile',
+                Signup: 'signup',
+                'Live Listening': 'live_listening',
+            },
+        },
+    };
 
-	const [data, setData] = useState(null);
+    const [data, setData] = useState(null);
 
-	function handleDeepLink(event) {
-		let data = Linking.parse(event.url);
-		setData(data);
-	}
+    function handleDeepLink(event) {
+        let data = Linking.parse(event.url);
+        setData(data);
+    }
 
-	useEffect(() => {
-		async function getInitialUrl() {
-			const initialUrl = await Linking.getInitialURL();
-			if (initialUrl) setData(Linking.parse(initialUrl));
-		}
+    useEffect(() => {
+        async function getInitialUrl() {
+            const initialUrl = await Linking.getInitialURL();
+            if (initialUrl) setData(Linking.parse(initialUrl));
+        }
 
-		Linking.addEventListener('url', handleDeepLink);
-		if (!data) {
-			getInitialUrl();
-		}
-		return () => {
-			Linking.removeEventListener('url');
-		};
-	}, []);
+        Linking.addEventListener('url', handleDeepLink);
+        if (!data) {
+            getInitialUrl();
+        }
+        return () => {
+            Linking.removeEventListener('url');
+        };
+    }, []);
 
-	console.log(data ? JSON.stringify(data) : 'APP NOT OPENED FROM DEEP LINK');
+    console.log(data ? JSON.stringify(data) : 'APP NOT OPENED FROM DEEP LINK');
 
+    // NESTED NAVIGATION STACK CODE HERE
+    // each tab gives a stack
+    // const FriendsStack = createNativeStackNavigator();
 
-	// NESTED NAVIGATION STACK CODE HERE
-	// each tab gives a stack
-	// const FriendsStack = createNativeStackNavigator();
+    // function FriendsStackScreen() {
+    // 	return (
+    // 		<FriendsStack.Navigator>
+    // 			<FriendsStack.Screen name="Friends" component={FriendsScreen} />
+    // 			<FriendsStack.Screen name="Live Listening" component={LiveListeningScreen} />
+    // 		</FriendsStack.Navigator>
+    // 	);
+    // }
 
-	// function FriendsStackScreen() {
-	// 	return (
-	// 		<FriendsStack.Navigator>
-	// 			<FriendsStack.Screen name="Friends" component={FriendsScreen} />
-	// 			<FriendsStack.Screen name="Live Listening" component={LiveListeningScreen} />
-	// 		</FriendsStack.Navigator>
-	// 	);
-	// }
-
-
-	if (!fontsLoaded) {
-		return <AppLoading />;
-	} else {
-		return (
-			<NavigationContainer linking={linking}>
-				<Tab.Navigator
-					screenOptions={{
-						tabBarShowLabel: false,
-						tabBarStyle: [
-							{
-								display: 'flex',
-							},
-							null,
-						],
-						headerTitleStyle: {
-							fontFamily: 'Montserrat_500Medium',
-						},
-					}}
-					initialRouteName={isLoggedIn ? 'Profile' : 'Signup'}
-				>
-					{isLoggedIn ? (
-						<Tab.Group>
-							<Tab.Screen
-								name="Profile"
-								component={ProfileScreen}
-								options={{
-									headerTitle: 'Profile',
-									tabBarLabel: 'Profile',
-									tabBarIcon: (tabInfo) => (
-										<Ionicons name="settings" size={30} color={tabInfo.tintColor} />
-									),
-								}}
-							/>
-							<Tab.Screen
-								name="Activity"
-								component={ActivityScreen}
-								options={{
-									headerTitle: 'Live Listening',
-									tabBarLabel: 'Activity',
-									tabBarIcon: (tabInfo) => (
-										<Feather name="activity" size={32} color={tabInfo.tintColor} />
-									),
-								}}
-							/>
-							<Tab.Screen
-								name="Friends"
-								component={FriendsScreen}
-								options={{
-									headerTitle: 'Friends',
-									tabBarLabel: 'Friends',
-									tabBarIcon: (tabInfo) => (
-										<FontAwesome5 name="user-friends" size={30} color={tabInfo.tintColor} />
-									),
-								}}
-							/>
-							
-						</Tab.Group>
-					) : (
-						<Tab.Group>
-							<Tab.Screen
-								name="Login"
-								component={LoginScreen}
-								options={{
-									headerTitle: 'Login',
-									tabBarLabel: 'Login',
-									tabBarIcon: (tabInfo) => (
-										<Ionicons name="log-in-outline" size={40} color={tabInfo.tintColor} />
-									),
-								}}
-							/>
-							<Tab.Screen
-								name="Signup"
-								component={() => <SignupScreen onLogin={onLogin} />}
-								options={{
-									headerTitle: 'Sign Up',
-									tabBarLabel: 'Sign Up',
-									tabBarIcon: (tabInfo) => (
-										<FontAwesome name="pencil-square-o" size={30} color={tabInfo.tintColor} />
-									),
-								}}
-							/>
-						</Tab.Group>
-					)}
-				</Tab.Navigator>
-			</NavigationContainer>
-		);
-	}
+    if (!fontsLoaded) {
+        return <AppLoading />;
+    } else {
+        return (
+            <NavigationContainer linking={linking}>
+                <Tab.Navigator
+                    screenOptions={{
+                        tabBarShowLabel: false,
+                        tabBarStyle: [
+                            {
+                                display: 'flex',
+                            },
+                            null,
+                        ],
+                        headerTitleStyle: {
+                            fontFamily: 'Montserrat_500Medium',
+                        },
+                    }}
+                    initialRouteName={isLoggedIn ? 'Profile' : 'Signup'}
+                >
+                    {isLoggedIn ? (
+                        <Tab.Group>
+                            <Tab.Screen
+                                name="Profile"
+                                component={ProfileScreen}
+                                options={{
+                                    headerTitle: 'Profile',
+                                    tabBarLabel: 'Profile',
+                                    tabBarIcon: (tabInfo) => (
+                                        <Ionicons name="settings" size={30} color={tabInfo.tintColor} />
+                                    ),
+                                }}
+                            />
+                            <Tab.Screen
+                                name="Activity"
+                                component={ActivityScreen}
+                                options={{
+                                    headerTitle: 'Live Listening',
+                                    tabBarLabel: 'Activity',
+                                    tabBarIcon: (tabInfo) => (
+                                        <Feather name="activity" size={32} color={tabInfo.tintColor} />
+                                    ),
+                                }}
+                            />
+                            <Tab.Screen
+                                name="Friends"
+                                component={FriendsScreen}
+                                options={{
+                                    headerTitle: 'Friends',
+                                    tabBarLabel: 'Friends',
+                                    tabBarIcon: (tabInfo) => (
+                                        <FontAwesome5 name="user-friends" size={30} color={tabInfo.tintColor} />
+                                    ),
+                                }}
+                            />
+                        </Tab.Group>
+                    ) : (
+                        <Tab.Group>
+                            <Tab.Screen
+                                name="Login"
+                                component={LoginScreen}
+                                options={{
+                                    headerTitle: 'Login',
+                                    tabBarLabel: 'Login',
+                                    tabBarIcon: (tabInfo) => (
+                                        <Ionicons name="log-in-outline" size={40} color={tabInfo.tintColor} />
+                                    ),
+                                }}
+                            />
+                            <Tab.Screen
+                                name="Signup"
+                                component={() => <SignupScreen onLogin={onLogin} />}
+                                options={{
+                                    headerTitle: 'Sign Up',
+                                    tabBarLabel: 'Sign Up',
+                                    tabBarIcon: (tabInfo) => (
+                                        <FontAwesome name="pencil-square-o" size={30} color={tabInfo.tintColor} />
+                                    ),
+                                }}
+                            />
+                        </Tab.Group>
+                    )}
+                </Tab.Navigator>
+            </NavigationContainer>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
 });
