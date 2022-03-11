@@ -11,11 +11,11 @@ import {
     // TouchableHighlight,
 } from 'react-native';
 
-import corbinSongData from '../assets/corbin_song_data.json';
+import partnerSongData from '../assets/corbin_song_data.json';
 import { FontAwesome } from '@expo/vector-icons';
 
 // the first song is the currently playing i guess
-let DATA = corbinSongData.items.map((track) => {
+let DATA = partnerSongData.items.map((track) => {
     return {
         id: track.track.id,
         albumImage: track.track.album.images[0].url,
@@ -30,7 +30,7 @@ let DATA = corbinSongData.items.map((track) => {
 const firstSong = DATA[0];
 DATA = DATA.slice(1);
 
-const ActivityScreen = () => {
+const LiveListeningCorbinScreen = () => {
     return (
         <View style={styles.container}>
             <FlatList
@@ -123,4 +123,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default ActivityScreen;
+export default LiveListeningCorbinScreen;

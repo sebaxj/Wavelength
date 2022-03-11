@@ -11,11 +11,11 @@ import {
     // TouchableHighlight,
 } from 'react-native';
 
-import corbinSongData from '../assets/corbin_song_data.json';
+import partnerSongData from '../assets/steven_song_data.json';
 import { FontAwesome } from '@expo/vector-icons';
 
 // the first song is the currently playing i guess
-let DATA = corbinSongData.items.map((track) => {
+let DATA = partnerSongData.items.map((track) => {
     return {
         id: track.track.id,
         albumImage: track.track.album.images[0].url,
@@ -30,7 +30,7 @@ let DATA = corbinSongData.items.map((track) => {
 const firstSong = DATA[0];
 DATA = DATA.slice(1);
 
-const ActivityScreen = () => {
+const LiveListeningStevenScreen = () => {
     return (
         <View style={styles.container}>
             <FlatList
@@ -71,10 +71,10 @@ const ActivityScreen = () => {
                             <View style={{ justifyContent: 'center', marginLeft: 'auto' }}>
                                 <Image
                                     style={styles.picture}
-                                    source={{ uri: 'https://i.scdn.co/image/ab6775700000ee859b4a88ce129b7d455dbb3d1d' }}
+                                    source={{ uri: 'https://i.scdn.co/image/ab6775700000ee85baa2c99442e6028fa3d591dd' }}
                                 />
                                 <Text style={{ alignSelf: 'center', fontFamily: 'Montserrat_400Regular' }}>
-                                    Corbin Schmeil
+                                    stevenk523
                                 </Text>
                             </View>
                         </View>
@@ -123,4 +123,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default ActivityScreen;
+export default LiveListeningStevenScreen;

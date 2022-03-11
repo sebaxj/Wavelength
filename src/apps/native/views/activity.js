@@ -21,6 +21,11 @@ import CorbinProfile from './corbin.profile.js';
 import SebastianProfile from './sebastian.profile.js';
 import StevenProfile from './steven.profile.js';
 
+// IMPORT LIVE LISTENING SCREENS
+import LiveListeningCorbinScreen from './live_listening_corbin';
+import LiveListeningStevenScreen from './live_listening_steven';
+import LiveListeningSebScreen from './live_listening_seb';
+
 // Stack Navigator
 const Stack = createNativeStackNavigator();
 
