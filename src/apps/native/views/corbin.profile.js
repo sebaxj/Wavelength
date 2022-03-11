@@ -7,8 +7,8 @@ import axios from 'axios';
 // import connorSongData from '../assets/blah.json';
 // import connorUserData from '../assets/connor_data.json';
 
-import connorSongData from '../assets/steven_song_data.json';
-import connorUserData from '../assets/steven_data.json';
+import connorSongData from '../assets/corbin_song_data.json';
+import connorUserData from '../assets/corbin_data.json';
 
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
