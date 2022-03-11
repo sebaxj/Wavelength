@@ -77,20 +77,6 @@ const formatPlaylist = () => {
 	return output;
 };
 
-// SCREENS
-const ConnorProfile = ({ navigation }) => {
-	return <ConnorProfile />;
-};
-const CorbinProfile = ({ navigation }) => {
-	return <CorbinProfile />;
-};
-const SebastianProfile = ({ navigation }) => {
-	return <SebastianProfile />;
-};
-const StevenProfile = ({ navigation }) => {
-	return <StevenProfile />;
-};
-
 const DATA = connorSongData.items.map((track) => {
 	return {
 		id: track.track.id,
