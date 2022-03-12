@@ -1,6 +1,4 @@
 import { StatusBar } from 'expo-status-bar';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ListItem, Avatar } from 'react-native-elements';
 import {
 	StyleSheet,
@@ -16,32 +14,6 @@ import {
 import corbinSongData from '../assets/corbin_song_data.json';
 import { FontAwesome } from '@expo/vector-icons';
 
-import ConnorProfile from './connor.profile.js';
-import CorbinProfile from './corbin.profile.js';
-import SebastianProfile from './sebastian.profile.js';
-import StevenProfile from './steven.profile.js';
-
-// IMPORT LIVE LISTENING SCREENS
-import LiveListeningCorbinScreen from './live_listening_corbin';
-import LiveListeningStevenScreen from './live_listening_steven';
-import LiveListeningSebScreen from './live_listening_seb';
-
-// Stack Navigator
-const Stack = createNativeStackNavigator();
-
-// SCREENS
-const Connor = ({ navigation }) => {
-	return <ConnorProfile />;
-};
-const Corbin = ({ navigation }) => {
-	return <CorbinProfile />;
-};
-const Sebastian = ({ navigation }) => {
-	return <SebastianProfile />;
-};
-const Steven = ({ navigation }) => {
-	return <StevenProfile />;
-};
 
 // the first song is the currently playing i guess
 let DATA = corbinSongData.items.map((track) => {
@@ -68,7 +40,13 @@ const ActivityScreen = () => {
 				ListHeaderComponent={
 					<>
 						<View style={{ marginTop: 10, marginBottom: 20, justifyContent: 'center' }}>
-							<Text style={{ fontFamily: 'Montserrat_500Medium', fontSize: 18, alignSelf: 'center' }}>
+							<Text
+								style={{
+									fontFamily: 'Montserrat_500Medium',
+									fontSize: 18,
+									alignSelf: 'center',
+								}}
+							>
 								Now playing
 							</Text>
 						</View>
@@ -93,14 +71,18 @@ const ActivityScreen = () => {
 							<View style={{ justifyContent: 'center' }}>
 								<Image
 									style={styles.picture}
-									source={{ uri: 'https://i.scdn.co/image/ab6775700000ee85c481e249f22585f0c118942b' }}
+									source={{
+										uri: 'https://i.scdn.co/image/ab6775700000ee85c481e249f22585f0c118942b',
+									}}
 								/>
 								<Text style={{ alignSelf: 'center', fontFamily: 'Montserrat_400Regular' }}>Connor</Text>
 							</View>
 							<View style={{ justifyContent: 'center', marginLeft: 'auto' }}>
 								<Image
 									style={styles.picture}
-									source={{ uri: 'https://i.scdn.co/image/ab6775700000ee859b4a88ce129b7d455dbb3d1d' }}
+									source={{
+										uri: 'https://i.scdn.co/image/ab6775700000ee859b4a88ce129b7d455dbb3d1d',
+									}}
 								/>
 								<Text style={{ alignSelf: 'center', fontFamily: 'Montserrat_400Regular' }}>
 									Corbin Schmeil
@@ -108,7 +90,13 @@ const ActivityScreen = () => {
 							</View>
 						</View>
 						<View style={{ marginTop: 10, marginBottom: 20, justifyContent: 'center' }}>
-							<Text style={{ fontFamily: 'Montserrat_500Medium', fontSize: 18, alignSelf: 'center' }}>
+							<Text
+								style={{
+									fontFamily: 'Montserrat_500Medium',
+									fontSize: 18,
+									alignSelf: 'center',
+								}}
+							>
 								Next Up (from Spotify)
 							</Text>
 						</View>

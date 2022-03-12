@@ -209,7 +209,7 @@ const ProfileScreen = () => {
 										headers: {
 											Authorization:
 												'Bearer ' +
-												'BQDQkFRXVX7Iobbk9bp7aoaulIO_N3Nzo95eCKRx2A20zGiwASajvUZ-bKk4TL-Z1EJqK-y24LEgse5w-NBob2eGgnHDnOmdFRG-a3oX2f448hn_sKV8moRUGPqvhswsdD2Orges5ssUJ9bE4hcu7sJOU6jlavcbzqh0yGaULRO7hAEJQ_QgWg',
+												'BQCNatQYjPm6Jh6L_KYr0Njt_9B_krROfJf-ODH-hh8NpDgXvST2_cDSJ60uQzWwINouOBifzXQQQGQUteMdq6mHhvxQXfDVr9HLPrEWRgcOj34sYSwrLMGCy-fCyLKteq-0qTGeqmfoihP8QWYI9XB4cZtf9omreQYNcObZ8TYJPAsKLynWCA',
 										},
 									})
 										.then((response) => {
